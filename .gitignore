@@ -1,0 +1,58 @@
+######################
+###### Mac OS X ######
+######################
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+######################
+######   Java   ######
+######################
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+########
+# other
+########
+*.pdf
+
+#idea
+.idea/
+
+# eclipse
+.project
+.classpath
+.settings/
+
+# maven
+.mvn/
+target/
+
+
