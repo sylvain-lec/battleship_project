@@ -4,7 +4,7 @@ public class Coordonnee implements Comparable<Coordonnee> {
 	private int ligne ;
 	private int colonne ;
 	
-	public Coordonnee(int colonne, int ligne) {
+	public Coordonnee(int ligne, int colonne) {
 		if (colonne<0 || colonne>25 || ligne<0 || ligne>25)
 			throw new IllegalArgumentException("coordonnées non valides");
 		this.ligne = ligne;
