@@ -10,6 +10,7 @@ public class Coordonnee implements Comparable<Coordonnee> {
 		this.ligne = ligne;
 		this.colonne = colonne;
 	}
+	
 	public Coordonnee(String s) {
 		if (s.length()<2 || s.length()>3 || s.charAt(0)<'A' || s.charAt(0)>'z')
 			throw new IllegalArgumentException("coordonnées non valides");
@@ -33,9 +34,11 @@ public class Coordonnee implements Comparable<Coordonnee> {
 		ligne += 1;
 		return ""+col+ligne;
 	}
+	
 	public int getColonne() {
 		return colonne;
 	}
+	
 	public int getLigne() {
 		return ligne;
 	}
