@@ -16,7 +16,7 @@ public class Coordonnee implements Comparable<Coordonnee> {
 		char col = s.charAt(0);
 		if (s.charAt(0)>='a' && s.charAt(0)<='z')
 			col = (char) ((char) s.charAt(0)-'a'+'A');
-		this.colonne = col;
+		this.colonne = col-'A';
 		
 		try {
 		if (s.length()==2)
@@ -42,6 +42,7 @@ public class Coordonnee implements Comparable<Coordonnee> {
 
 	public boolean equals(Object obj) {
 		return (obj instanceof Coordonnee) && compareTo((Coordonnee)obj)==0; 
+		
 	}
 	public boolean voisine(Coordonnee c) {
 		return ((this.ligne == c.ligne-1 || this.ligne == c.ligne+1) && this.colonne == c.colonne) || ((this.colonne == c.colonne-1 || this.colonne == c.colonne+1) && this.ligne == c.ligne);
@@ -54,8 +55,9 @@ public class Coordonnee implements Comparable<Coordonnee> {
 			return this.ligne - c.ligne ;
 	}
 	public static void main(String[] args) {
-		Coordonnee test = new Coordonnee(3,1);
-		Coordonnee test2 = new Coordonnee(0,1);
-		System.out.println(test.compareTo(test2));
+		Coordonnee test = new Coordonnee("b2");
+		Coordonnee test2 = new Coordonnee(1,4);
+		System.out.println(test+" "+test2);
+		//System.out.println(test.compareTo(test2));
 	}
 }
