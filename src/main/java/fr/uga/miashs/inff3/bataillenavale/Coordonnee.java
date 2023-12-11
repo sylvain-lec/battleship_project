@@ -13,23 +13,23 @@ public class Coordonnee implements Comparable<Coordonnee> {
 	public Coordonnee(String s) {
 		if (s.length()<2 || s.length()>3 || s.charAt(0)<'A' || s.charAt(0)>'z')
 			throw new IllegalArgumentException("coordonnées non valides");
-		char col = s.charAt(0);
-		if (s.charAt(0)>='a' && s.charAt(0)<='z')
-			col = (char) ((char) s.charAt(0)-'a'+'A');
-		this.colonne = col-'A';
+		char lettre = s.charAt(0); //initialisation de la colonne
+		if (s.charAt(0)>='a' && s.charAt(0)<='z') //convertit en majuscules si besoin
+			lettre = (char) ((char) s.charAt(0)-'a'+'A');
+		this.colonne = lettre-'A'; //convertit le caractère lettre en int
 		
-		try {
-		if (s.length()==2)
+		try { //catch l'exception si c pas convertible en int 
+		if (s.length()==2) //initialisation de ligne
 			this.ligne = s.charAt(1)-'1';
 		else 
 			this.ligne = Integer.parseInt(s.substring(1))-1;
-		} catch (NumberFormatException e) {
+		} catch (NumberFormatException e) { 
 			throw new IllegalArgumentException("coordonnées non valides");
 		}
 	}
 
-	public String toString() {
-		char col = (char) ((char)colonne+'A');
+	public String toString() { 
+		char col = (char) ((char)colonne+'A'); //convertit la colonne en lettre majuscule
 		ligne += 1;
 		return ""+col+ligne;
 	}
@@ -44,20 +44,15 @@ public class Coordonnee implements Comparable<Coordonnee> {
 		return (obj instanceof Coordonnee) && compareTo((Coordonnee)obj)==0; 
 		
 	}
-	public boolean voisine(Coordonnee c) {
+	public boolean voisine(Coordonnee c) { //voisin si même ligne et colonne à côté, ou si même colonne mais ligne à côté. PAS voisin si colonne à côté et ligne à côté
 		return ((this.ligne == c.ligne-1 || this.ligne == c.ligne+1) && this.colonne == c.colonne) || ((this.colonne == c.colonne-1 || this.colonne == c.colonne+1) && this.ligne == c.ligne);
 		
 	}
-	public int compareTo(Coordonnee c) {
-		if (this.ligne == c.ligne)
+	public int compareTo(Coordonnee c) { 
+		if (this.ligne == c.ligne) //si c sur la même ligne, comparer les colonnes
 			return this.colonne - c.colonne ;
-		else
+		else //si c pas les mêmes lignes, comparer les lignes
 			return this.ligne - c.ligne ;
 	}
-	public static void main(String[] args) {
-		Coordonnee test = new Coordonnee("b2");
-		Coordonnee test2 = new Coordonnee(1,4);
-		System.out.println(test+" "+test2);
-		//System.out.println(test.compareTo(test2));
-	}
+
 }
