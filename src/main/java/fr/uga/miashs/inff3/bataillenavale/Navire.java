@@ -22,20 +22,23 @@ public class Navire {
 			return false;
 		return true;		
 	}
+	
+	public int tailleNavire() {
+		if (estVertical())
+			return (this.fin.getLigne() - this.debut.getLigne() + 1);
+		else
+			return (this.fin.getColonne() - this.debut.getColonne() + 1);
+	}
 
 	public String toString() {
-		int longueur;
 		String orientation = "";
-		if (!estVertical()) {
-			longueur = fin.getColonne() - debut.getColonne();
+		if (!estVertical())
 			orientation += "vertical";
-		}
 		else {
-			longueur = fin.getLigne() - debut.getLigne();
 			orientation += "horizontal";
 		}
 		// retourne un résultat de type "Navire(B1, 4, horizontal)"
-		return ("Navire(" + debut.toString() + ", " + longueur + ", " + orientation + ")");
+		return ("Navire(" + debut.toString() + ", " + this.tailleNavire() + ", " + orientation + ")");
 	}
 	
 	public Coordonnee getDebut() {
@@ -60,12 +63,74 @@ public class Navire {
 		return false;
 	}
 	
+	public Coordonnee[] tableauCoordonnees() {
+		Coordonnee[] tab = new Coordonnee[this.tailleNavire()];
+		if (this.estVertical()) {
+			// on boucle de la ligne du début à la fin pour this
+			for (int i = this.debut.getLigne(), j = 0; i == this.fin.getLigne(); i++) {
+				// on remplit le tableau de l'indice 0 à tailleNavire
+				tab[j] = new Coordonnee(i, this.fin.getColonne());
+			}
+		}
+		else {
+			// on boucle de la colonne du début à la fin pour this
+			for (int i = this.debut.getColonne(), j = 0; i == this.fin.getColonne(); i++) {
+				// on remplit le tableau de l'indice 0 à tailleNavire
+				tab[j] = new Coordonnee(this.fin.getLigne(), i);
+			}
+		}
+		return tab;
+	}
+	
 	public boolean touche(Navire n) {
-		
+		// Retourne true si et seulement si this est adjacent à n. L'adjacence par la diagonale ne compte pas.
+		for (int i = 0; i < this.tailleNavire(); i++) {
+			for (int j = 0; j < n.tailleNavire(); j++) {
+				if (this.tableauCoordonnees()[i].voisine(n.tableauCoordonnees()[j]))
+					return true;
+			}
+		}
+		return false;
+		/* USELESS
+		 if (this.estVertical()) {
+			// on boucle de la ligne de début à la fin pour this
+			for (int i = this.debut.getLigne(); i <= this.fin.getLigne(); i++) {
+				// on stocke les coordonnées de this pour le test ultérieur
+				Coordonnee CoordonneTestThis = new Coordonnee(i, this.debut.getColonne());
+				if (n.estVertical()) {
+					// on boucle de la ligne de début à la fin pour n
+					for (int j = n.debut.getLigne(); j <= this.fin.getLigne(); j++) {
+						// on stocke les coordonnées de n pour le test ultérieur
+						Coordonnee CoordonneTestN = new Coordonnee(j, n.debut.getColonne());
+						// on compare la voisinité des coordonnées
+						if (CoordonneTestThis.voisine(CoordonneTestN))
+							// si voisinité = true
+							return true;
+					}
+				}
+				// n est horizontal
+				else {
+					for (int j = n.debut.getColonne(); j <= this.fin.getColonne(); j++) {
+						Coordonnee CoordonneTestN = new Coordonnee(n.debut.getLigne(), j);
+						if (CoordonneTestThis.voisine(CoordonneTestN))
+							return true;
+					}
+				}
+			}
+		}
+		// this est horizontal
+		else {*/
 	}
 	
 	public boolean chevauche(Navire n) {
-		
+		// Retourne true si et seulement si this chevauche n, c'est-à-dire que this et n occupent au moins une coordonnée en commun.
+		for (int i = 0; i < this.tailleNavire(); i++) {
+			for (int j = 0; j < n.tailleNavire(); j++) {
+				if (this.tableauCoordonnees()[i].equals(n.tableauCoordonnees()[j]))
+					return true;
+			}
+		}
+		return false;
 	}
 	
 	public boolean recoitTir(Coordonnee c) {
