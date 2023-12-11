@@ -13,7 +13,8 @@ public class Coordonnee implements Comparable<Coordonnee> {
 	public Coordonnee(String s) {
 		if (s.length()<2 || s.length()>3 || s.charAt(0)<'A' || s.charAt(0)>'Z')
 			throw new IllegalArgumentException("coordonnées non valides");
-	
+		//if (s.charAt(0)>='a' && s.charAt(0)<='z')
+			
 		this.colonne = s.charAt(0)-'A';
 		try {
 		if (s.length()==2)
@@ -53,6 +54,6 @@ public class Coordonnee implements Comparable<Coordonnee> {
 	public static void main(String[] args) {
 		Coordonnee test = new Coordonnee(3,1);
 		Coordonnee test2 = new Coordonnee(0,1);
-		test.compareTo(test2);
+		System.out.println(test.compareTo(test2));
 	}
 }
