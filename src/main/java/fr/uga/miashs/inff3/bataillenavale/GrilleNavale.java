@@ -8,14 +8,14 @@ public class GrilleNavale {
 	private int nbTirsRecus;
 
 	public GrilleNavale(int taille, int[] taillesNavires) {
-		this.navires = null;
+		this.navires = new Navire[taillesNavires.length];
 		this.nbNavires = taillesNavires.length;
 		this.taille = taille;
 		tirsRecus = null;
 		nbTirsRecus = 0;
 	}
 	public GrilleNavale(int taille, int nbNavires) {
-		this.navires = null;
+		this.navires = new Navire[nbNavires];
 		this.nbNavires = nbNavires;
 		this.taille = taille;
 		tirsRecus = null;
@@ -25,6 +25,7 @@ public class GrilleNavale {
 		return taille;
 	}
 	public boolean ajouteNavire(Navire n) {
+		
 		
 	}
 	public static void main(String[] args) {
