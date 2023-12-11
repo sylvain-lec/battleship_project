@@ -11,11 +11,13 @@ public class Coordonnee implements Comparable<Coordonnee> {
 		this.colonne = colonne;
 	}
 	public Coordonnee(String s) {
-		if (s.length()<2 || s.length()>3 || s.charAt(0)<'A' || s.charAt(0)>'Z')
+		if (s.length()<2 || s.length()>3 || s.charAt(0)<'A' || s.charAt(0)>'z')
 			throw new IllegalArgumentException("coordonnées non valides");
-		//if (s.charAt(0)>='a' && s.charAt(0)<='z')
-			
-		this.colonne = s.charAt(0)-'A';
+		char col = s.charAt(0);
+		if (s.charAt(0)>='a' && s.charAt(0)<='z')
+			col = (char) ((char) s.charAt(0)-'a'+'A');
+		this.colonne = col;
+		
 		try {
 		if (s.length()==2)
 			this.ligne = s.charAt(1)-'1';
