@@ -8,21 +8,16 @@ public class Navire {
 	private int nbTouchees; 
 
 	public Navire(Coordonnee debut,int longueur,boolean estVertical){
-		
 		this.debut = debut;
-		
-	
-	if (estVertical==true) 
-		this.fin = new Coordonnee (this.debut.getColonne(),(longueur-1));
-	else
-		this.fin = new Coordonnee ((longueur-1),this.debut.getLigne());
+		if (estVertical==true) 
+			this.fin = new Coordonnee (this.debut.getLigne() + (longueur - 1), this.debut.getColonne());
+		else
+			this.fin = new Coordonnee (this.debut.getLigne(), this.debut.getColonne() + (longueur - 1));
 		
 	}
 
 	public String toString() {
-		
 		String position;
-		
 		if()
 		return null;
 	}
@@ -30,9 +25,11 @@ public class Navire {
 	public Coordonnee getDebut() {
 		return this.debut;
 	}
+	
 	public Coordonnee getFin() {
 		return this.fin;
 	}
+	
 	public boolean contient(Coordonnee c) {
 		
 		if (this.debut.getColonne()==this.fin.getColonne()) {
@@ -49,26 +46,30 @@ public class Navire {
 	public boolean touche(Navire n) {
 		
 	}
+	
 	public boolean chevauche(Navire n) {
 		
 	}
+	
 	public boolean recoitTir(Coordonnee c) {
 		
 	}
+	
 	public boolean estTouche(Coordonnee c) {
 		
 	}
+	
 	public boolean estTouche() {
 		
 	}
+	
 	public boolean estCoule() {
 		
 	}
+	
 	public static void main(String[] args) {
 		Navire test = new Navire (new Coordonnee(2,2),3,true);
-		test.contient(new Coordonnee(2,2));
-		
-		
+		test.contient(new Coordonnee(2,2));		
 	}
 	
 }
