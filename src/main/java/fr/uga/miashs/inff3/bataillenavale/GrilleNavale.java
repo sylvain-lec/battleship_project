@@ -152,7 +152,11 @@ public class GrilleNavale {
 	
 	private boolean ajouteDansTirsRecus(Coordonnee c) {
 		// Ajoute c aux tirs reçus de this si nécessaire. Retourne true si et seulement si this est modifié.
-		
+		if (!(this.estDansTirsRecus(c))) {
+			tirsRecus[nbTirsRecus] = c;
+			return true;
+		}
+		return false;
 	}
 	
 	public boolean recoitTir(Coordonnee c) {
