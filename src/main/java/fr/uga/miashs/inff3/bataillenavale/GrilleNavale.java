@@ -184,25 +184,38 @@ public class GrilleNavale {
 	
 	public boolean recoitTir(Coordonnee c) {
 		// Ajoute c aux tirs reçus de this si nécessaire. Retourne true si et seulement si c ne correspondait pas déjà à un tir reçu et a permis de toucher un navire de this.
-		
-		return true;
+		if (!(this.estDansTirsRecus(c))) {
+			for (int i = 0; i < nbNavires; i++)
+				// pas ce recoitTir, mais celui de navires !
+				if (navires[i].recoitTir(c))
+					return true;
+		}
+		return false;
 
 	}
 	
 	public boolean estTouche(Coordonnee c) {
-	// Retourne true si et seulement si un des navires présents dans this a été touché en c.
-		return true;
-
+		// Retourne true si et seulement si un des navires présents dans this a été touché en c.
+		for (int i = 0; i < nbNavires; i++) {
+			if (navires[i].estTouche(c))
+				return true;
+		}
+		return false;
 	}
 	
 	public boolean estALEau(Coordonnee c) {
-	// Retourne true si et seulement si c correspond à un tir reçu dans l'eau par this.
+		// Retourne true si et seulement si c correspond à un tir reçu dans l'eau par this.
+		for (int i = 0; i < nbNavires; i++) {
+			if (navires[i].estTouche(c))
+				return false;
+		}
 		return true;
 
 	}
 	
 	public boolean estCoule(Coordonnee c) {
-	// Retourne true si et seulement si un des navires présents dans this a été touché en c et est coulé.
+		// Retourne true si et seulement si un des navires présents dans this a été touché en c et est coulé.
+		
 		return true;
 
 	}
