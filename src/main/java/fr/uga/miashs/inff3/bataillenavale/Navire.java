@@ -26,7 +26,7 @@ public class Navire {
 	}
 	
 	public int tailleNavire() {
-		return (this.fin.getLigne() - this.debut.getLigne() + this.fin.getColonne() - this.debut.getColonne());
+		return (1 + this.fin.getLigne() - this.debut.getLigne() + this.fin.getColonne() - this.debut.getColonne());
 	}
 
 	public String toString() {
