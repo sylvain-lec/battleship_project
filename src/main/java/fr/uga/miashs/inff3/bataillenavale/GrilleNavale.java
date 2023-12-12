@@ -14,6 +14,7 @@ public class GrilleNavale {
 		tirsRecus = null;
 		nbTirsRecus = 0;
 	}
+	
 	public GrilleNavale(int taille, int nbNavires) {
 		this.navires = new Navire[nbNavires];
 		this.nbNavires = nbNavires;
@@ -110,7 +111,7 @@ public class GrilleNavale {
 	}
 	public static void main(String[] args) {
 		int [] tab = new int [0];
-		GrilleNavale test = new GrilleNavale (10, tab);
+		GrilleNavale test = new GrilleNavale (5, tab);
 		System.out.println(test.toString());
 		
 		
