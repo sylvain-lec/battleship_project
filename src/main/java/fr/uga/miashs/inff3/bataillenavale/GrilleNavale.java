@@ -12,10 +12,11 @@ public class GrilleNavale {
 	public GrilleNavale(int taille, int[] taillesNavires) {
 		// permet d'obtenir une grille navale de taille taille dans laquelle ont été placés automatiquement taillesNavires.length navires dont les tailles sont données dans taillesNavires.
 		this.navires = new Navire[taillesNavires.length];
-		this.nbNavires = taillesNavires.length;
+		this.nbNavires = 0;
 		this.taille = taille;
 		tirsRecus = new Coordonnee[10];
 		nbTirsRecus = 0;
+		this.placementAuto(taillesNavires);
 	}
 	
 	public GrilleNavale(int taille, int nbNavires) {
@@ -49,14 +50,14 @@ public class GrilleNavale {
 		StringBuffer lignePoint = new StringBuffer("");
 		String chiffre2 ="";
 		
-		for (int j = 0;j <this.getTaille();j++) {
+		for (int j = 0;j <taille;j++) {
 			int chiffre = j+1;
 			
 			if (chiffre < 10)
 				chiffre2 = chiffre2 + " " +chiffre;
 			else
 				 chiffre2 = chiffre2 +chiffre;
-			for(int k = 0;k <this.getTaille();k++) {
+			for(int k = 0;k <taille;k++) {
 				
 				char point = '.';
 				lignePoint.append(point +" ") ;
@@ -72,7 +73,7 @@ public class GrilleNavale {
 		// Positionnement des navires
 		int longueurGrille = 3 + (taille* 2);
 		
-		for (int i = 0; i <= navires.length ; i++) {
+		for (int i = 0; i < navires.length ; i++) {
 			int coordonneeLigne =navires[i].toString().charAt(7); // Retrouver la colonne du navire i
 			int indiceColonne = navires.toString().charAt(8); // Retrouver la ligne !!!réadapter quand le nbre est à 2 chiffres
 			int Debut = (longueurGrille*coordonneeLigne) + indiceColonne;
@@ -89,7 +90,7 @@ public class GrilleNavale {
 			//Positionnement des tirs libres
 			
 		}
-		for (int i = 0; i < tirsRecus.length; i++) {
+		/*for (int i = 0; i < tirsRecus.length; i++) {
 			int coordonneeLigne =tirsRecus[i].getColonne(); // Retrouver la colonne du navire i
 			int indiceColonne = tirsRecus[i].getLigne(); // Retrouver la ligne !!!réadapter quand le nbre est à 2 chiffres
 			int Debut = (longueurGrille*coordonneeLigne) + indiceColonne;
@@ -103,7 +104,7 @@ public class GrilleNavale {
 				for (int k = 1; k <= navires[i].tailleNavire(); k ++)
 					grille.setCharAt(Debut + longueurGrille, '#');
 			}	
-		}
+		}*/
 				
 		return grille.toString();	
 	}
@@ -153,8 +154,9 @@ public class GrilleNavale {
 	
 	public void placementAuto(int[] taillesNavires) {
 		// Place automatiquement et aléatoirement taillesNavires.length navires dont les tailles sont données dans taillesNavire.
-		for (int i = 0; i < taillesNavires.length; i++)
-			this.ajouteNavire(new Navire(new Coordonnee(new Random().nextInt(taille), new Random().nextInt(taille)), taillesNavires[i], new Random().nextBoolean()));
+		for (int i = 0; i < taillesNavires.length; )
+			if (this.ajouteNavire(new Navire(new Coordonnee(new Random().nextInt(taille), new Random().nextInt(taille)), taillesNavires[i], new Random().nextBoolean())))
+				i++;
 	}
 	
 	private boolean estDansGrille(Coordonnee c) {
