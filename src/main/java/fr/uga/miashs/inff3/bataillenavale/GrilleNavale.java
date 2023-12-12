@@ -71,21 +71,22 @@ public class GrilleNavale {
 		}
 		
 		// Positionnement des navires
-		int largeurGrille = 3 + (taille* 2);
+		// char de passage à la ligne + décalage
+		int largeurGrille = 4 + (taille* 2);
 		
-		for (int i = 0; i < navires.length ; i++) {
+		for (int i = 0; i < nbNavires ; i++) {
 			int coordonneeLigne = navires[i].getDebut().getLigne() + 1; // Retrouver la colonne du navire i
-			int indiceColonne = navires[i].getDebut().getColonne() + 3; // Retrouver la ligne !!!réadapter quand le nbre est à 2 chiffres
-			int Debut = (largeurGrille*coordonneeLigne) + indiceColonne;
+			int indiceColonne = navires[i].getDebut().getColonne()*2 + 3; // Retrouver la ligne !!!réadapter quand le nbre est à 2 chiffres
+			int Debut = (largeurGrille*coordonneeLigne) + indiceColonne; // point de départ
 
 			if (navires[i].getFin().getLigne() == navires[i].getDebut().getLigne())
 //				orientation += "horizontal"
 				for (int j = 0; j < navires[i].tailleNavire(); j++)
-					grille.setCharAt(Debut +j, '#');
+					grille.setCharAt(Debut +j*2, '#');
 			else {
 //				orientation += "vertical"
-				for (int k = 1; k <= navires[i].tailleNavire(); k ++)
-					grille.setCharAt((Debut + largeurGrille)*k, '#');
+				for (int k = 0; k < navires[i].tailleNavire(); k ++)
+					grille.setCharAt(Debut + largeurGrille*k, '#');
 			}
 			
 			//Positionnement des tirs libres
@@ -145,7 +146,7 @@ public class GrilleNavale {
 	public boolean ajouteNavire(Navire n) {
 		//Retourne true après avoir ajouté n à this si cet ajout est possible. L'ajout est impossible si n touche ou chevauche un navire déjà présent dans this, ou encore si n dépasse les limites de this.
 		for (int i = 0; i < nbNavires; i++) {
-				if (this.navires[i].touche(n) || this.navires[i].chevauche(n) || n.getFin().getLigne() > taille || n.getFin().getColonne() > taille)
+				if (this.navires[i].touche(n) || this.navires[i].chevauche(n) || n.getFin().getLigne() >= taille || n.getFin().getColonne() >= taille)
 					return false;
 		}
 		this.navires[nbNavires] = n;
@@ -156,7 +157,7 @@ public class GrilleNavale {
 	public void placementAuto(int[] taillesNavires) {
 		// Place automatiquement et aléatoirement taillesNavires.length navires dont les tailles sont données dans taillesNavire.
 		for (int i = 0; i < taillesNavires.length; )
-			if (this.ajouteNavire(new Navire(new Coordonnee(new Random().nextInt(taille), new Random().nextInt(taille)), taillesNavires[i], new Random().nextBoolean())))
+			if (this.ajouteNavire(new Navire(new Coordonnee(new Random().nextInt(taille - taillesNavires[i] + 1), new Random().nextInt(taille - taillesNavires[i] + 1)), taillesNavires[i], new Random().nextBoolean())))
 				i++;
 	}
 	
@@ -185,7 +186,8 @@ public class GrilleNavale {
 	}
 	
 	public boolean recoitTir(Coordonnee c) {
-	// Ajoute c aux tirs reçus de this si nécessaire. Retourne true si et seulement si c ne correspondait pas déjà à un tir reçu et a permis de toucher un navire de this.
+		// Ajoute c aux tirs reçus de this si nécessaire. Retourne true si et seulement si c ne correspondait pas déjà à un tir reçu et a permis de toucher un navire de this.
+		
 		return true;
 
 	}
@@ -216,10 +218,14 @@ public class GrilleNavale {
 	
 	
 	public static void main(String[] args) {
-		int [] tab = {3, 2};
-		GrilleNavale test = new GrilleNavale(10, tab);
-		Navire nav = new Navire(new Coordonnee(0,0), 2, true);
-		System.out.println(test);
+		int [] tab = {3, 2, 2, 3};
+		GrilleNavale test = new GrilleNavale(10, 2);
+		GrilleNavale test2 = new GrilleNavale(10, tab);
+		Coordonnee c = new Coordonnee("H7");
+		Navire nav = new Navire(c, 2, false);
+		//System.out.println(""+ c.getLigne()+ c.getColonne());
+		//System.out.println(test.ajouteNavire(nav));
+		System.out.println(test2);
 	
 	}
 }
