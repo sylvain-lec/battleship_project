@@ -218,15 +218,20 @@ public class GrilleNavale {
 	
 	public boolean estCoule(Coordonnee c) {
 		// Retourne true si et seulement si un des navires présents dans this a été touché en c et est coulé.
-		
-		return true;
-
+		for (int i = 0; i < nbNavires; i++) {
+			if (navires[i].estTouche(c) && navires[i].estCoule())
+				return true;
+		}
+		return false;
 	}
 	
 	public boolean perdu() {
-	//Retourne true si et seulement si tous les navires de this ont été coulés.
+		//Retourne true si et seulement si tous les navires de this ont été coulés.
+		for (int i = 0; i < nbNavires; i++) {
+			if (!(navires[i].estCoule()))
+				return false;
+		}
 		return true;
-
 	}
 	
 	
