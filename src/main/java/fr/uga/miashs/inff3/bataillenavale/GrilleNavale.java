@@ -10,6 +10,7 @@ public class GrilleNavale {
 	private int nbTirsRecus; // tjrs utiliser cet int pour avoir le nbre de tirs recus car le tableau est init à 10.
 
 	public GrilleNavale(int taille, int[] taillesNavires) {
+		// permet d'obtenir une grille navale de taille taille dans laquelle ont été placés automatiquement taillesNavires.length navires dont les tailles sont données dans taillesNavires.
 		this.navires = new Navire[taillesNavires.length];
 		this.nbNavires = taillesNavires.length;
 		this.taille = taille;
@@ -18,8 +19,9 @@ public class GrilleNavale {
 	}
 	
 	public GrilleNavale(int taille, int nbNavires) {
+		// permet d'obtenir une grille navale vide de taille taille pouvant accueillir jusqu'à nbNavires.
 		this.navires = new Navire[nbNavires];
-		this.nbNavires = nbNavires;
+		this.nbNavires = 0;
 		this.taille = taille;
 		tirsRecus = new Coordonnee[10];
 		nbTirsRecus = 0;
@@ -182,15 +184,12 @@ public class GrilleNavale {
 	
 	
 	public static void main(String[] args) {
-		int [] tab = {2, 2, 3};
-		Navire a = new Navire (new Coordonnee ("A2"), 3, true);
-		Navire b = new Navire (new Coordonnee ("B2"), 2, false);
-		Navire [] tab2 = new Navire [] { a, b};
-		GrilleNavale test = new GrilleNavale(10, tab);
-		test.placementAuto(tab);
+		int [] tab = {3, 2};
+		GrilleNavale test = new GrilleNavale(10, 2);
+		Navire nav = new Navire(new Coordonnee(0,0), 2, true);
+		test.ajouteNavire(nav);
+		//test.placementAuto(tab);
 		System.out.println(test);
-
-		
 	
 	}
 }
