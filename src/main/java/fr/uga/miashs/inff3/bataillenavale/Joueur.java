@@ -56,14 +56,12 @@ public abstract class Joueur {
 	}
 	
 	protected abstract void retourAttaque(Coordonnee c, int etat);
-		// Cette méthode est invoquée sur le joueur attaquant à la fin d’un tour de jeu. 
-		// c est la coordonnée à laquelle le tir a eu lieu et etat le résultat de l'attaque. 
+		// Cette méthode est invoquée sur le joueur attaquant à la fin d’un tour de jeu. c est la coordonnée à laquelle le tir a eu lieu et etat le résultat de l'attaque. 
 		// etat ne peut être que TOUCHE, COULE, A_L_EAU, ou GAMEOVER.
 		
 	
 	protected abstract void retourDefense(Coordonnee c, int etat);
-		// Cette méthode est invoquée sur le joueur défenseur à la fin d’un tour de jeu. 
-		// c est la coordonnée à laquelle le tir a eu lieu et etat le résultat de ce tir. 
+		// Cette méthode est invoquée sur le joueur défenseur à la fin d’un tour de jeu. c est la coordonnée à laquelle le tir a eu lieu et etat le résultat de ce tir. 
 		// etat ne peut être que TOUCHE, COULE, A_L_EAU, ou GAMEOVER.
 		
 	
@@ -72,7 +70,6 @@ public abstract class Joueur {
         
 	
 	public abstract int defendre(Coordonnee c);
-		// Cette méthode est invoquée sur le joueur défenseur après le choix de l’attaquant, 
-		// c est la coordonnée à laquelle l’attaquant a choisi d’effectuer un tir. 
+		// Cette méthode est invoquée sur le joueur défenseur après le choix de l’attaquant, c est la coordonnée à laquelle l’attaquant a choisi d’effectuer un tir. 
 		// Elle retourne le résultat du tir qui ne peut être que TOUCHE, COULE, A_L_EAU, ou GAMEOVER.
 }
