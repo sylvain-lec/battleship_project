@@ -121,12 +121,12 @@ public class GrilleNavale {
 	
 	public boolean ajouteNavire(Navire n) {
 		//Retourne true après avoir ajouté n à this si cet ajout est possible. L'ajout est impossible si n touche ou chevauche un navire déjà présent dans this, ou encore si n dépasse les limites de this.
-		for (int i = 0; i < navires.length; i++) {
+		for (int i = 0; i < nbNavires; i++) {
 				if (this.navires[i].touche(n) || this.navires[i].chevauche(n) || n.getFin().getLigne() > taille || n.getFin().getColonne() > taille)
 					return false;
 		}
 		this.navires[nbNavires] = n;
-		nbNavires += 1;
+		nbNavires ++;
 		return true;	
 	}
 	
@@ -154,6 +154,7 @@ public class GrilleNavale {
 		// Ajoute c aux tirs reçus de this si nécessaire. Retourne true si et seulement si this est modifié.
 		if (!(this.estDansTirsRecus(c))) {
 			tirsRecus[nbTirsRecus] = c;
+			nbTirsRecus ++;
 			return true;
 		}
 		return false;
