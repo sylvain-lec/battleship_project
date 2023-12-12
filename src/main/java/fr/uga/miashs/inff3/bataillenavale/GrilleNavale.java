@@ -66,13 +66,28 @@ public class GrilleNavale {
 		}
 		return grille.toString();
 	}
-	public void CasesNavire (Coordonnee c){
-		int tailleInit = 3 + (taille* 2);
+	public String CasesNavire (Coordonnee c) {
+		int longueurGrille = 3 + (taille* 2);
+		int coordonneeLigne = Navire.toString().charAt(7);// Retrouver la colonne
+		int indiceColonne = navires.toString().charAt(8); // Retrouver la ligne !!!réadapter quand le nbre est à 2 chiffres
 		
+		int Debut = (longueurGrille*coordonneeLigne) + indiceColonne;
+		
+		for (int i = Debut; i <= navires.length; i++) {
+			navires.toString().charAt(i)= "#" ;
+			
+			if (Navire.fin.getLigne() == Navire.debut.getLigne())
+//				orientation += "horizontal"
+				for (int j = 0; j < navires.length; j++)
+				navires.toString().charAt(k) = "#" ;
+			else {
+//				orientation += "vertical"
+				for (int k = 0; k < navires.length; k++)
+					navires.toString().charAt(8) = "#" ;
+			}
+		}
 			
 	}
-		
-		
 
 	public Navire[] getNavires() {
 		return navires;
@@ -117,33 +132,9 @@ public class GrilleNavale {
 		Navire a = new Navire (new Coordonnee ("A12"), 3, true);
 		Navire b = new Navire (new Coordonnee ("B2"), 2, false);
 		Navire [] tab2 = new Navire [] { a, b};
-//		String orientation = "";
-//		if (tab[].fin.getLigne() == this.debut.getLigne())
-//			orientation += "horizontal";
-//		else {
-//			orientation += "vertical";
-//		}
-
-		System.out.println(tab2[0].getDebut().getLigne());
-		System.out.println(tab2[0].getDebut().getColonne());
-		System.out.println(tab2[0].getFin().getLigne());
-		System.out.println(tab2[0].getFin().getColonne());
-		System.out.println(tab2[0].getDebut());
-		System.out.println(tab2[0].getFin());
-		System.out.println("----------------");
-		System.out.println(tab2[0].tailleNavire());
 		System.out.println(tab2[0].toString());
-		System.out.println(tab2[0].tailleNavire());
-		System.out.println(tab2[0].toString());
-		System.out.println(tab2[0].tailleNavire());
-		System.out.println(tab2[0].toString());
-		System.out.println(tab2[0].tailleNavire());
-		System.out.println(tab2[0].toString());
+		System.out.println(tab2[0].toString().charAt(7));
 
-
-
-
-
-		
+	
 	}
 }
