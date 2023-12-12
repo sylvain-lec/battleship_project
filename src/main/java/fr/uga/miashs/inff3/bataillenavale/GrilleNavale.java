@@ -109,7 +109,7 @@ public class GrilleNavale {
 	}
 	public int getNbTirsRecus() {
 		return nbTirsRecus;
-	}
+	} 
 	public void setNbTirsRecus(int nbTirsRecus) {
 		this.nbTirsRecus = nbTirsRecus;
 	}
