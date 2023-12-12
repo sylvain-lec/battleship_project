@@ -18,14 +18,14 @@ public class Navire {
 		nbTouchees = 0;
 	}
 	
-	public boolean estVertical() {
+	private boolean estVertical() {
 		// test si navire est vertical = true
 		if (debut.getLigne() == fin.getLigne())
 			return false;
 		return true;		
 	}
 	
-	public int tailleNavire() {
+	private int tailleNavire() {
 		if (estVertical())
 			return (this.fin.getLigne() - this.debut.getLigne() + 1);
 		else
@@ -119,8 +119,6 @@ public class Navire {
 		     
         boolean ligneCommune = (finLigneThis >= debutLigneN && debutLigneThis <= finLigneN); 
         boolean colonneCommune = (finColonneThis >= debutColonneN && debutColonneThis <= finColonneN);
-        partiesTouchees
-        nbTouchees += 1;
         
         return (ligneCommune && colonneCommune);
         
@@ -143,8 +141,13 @@ public class Navire {
         
         boolean ligneCommune = (finLigneThis >= c.getLigne() && debutLigneThis <= c.getLigne()); 
         boolean colonneCommune = (finColonneThis >= c.getColonne() && debutColonneThis <= c.getColonne());
-        
-        return (ligneCommune && colonneCommune);
+        if (ligneCommune && colonneCommune) {
+        	nbTouchees += 1;
+            // intègre les coordonnées du tir c dans le tableau après éventuels tirs précédents
+            partiesTouchees[nbTouchees - 1] = c;
+            return true;
+        }
+        return false;
 		
 		/* Methode avec tableau de coordonnées
 		for (int i = 0; i < this.tailleNavire(); i++) {
@@ -156,20 +159,19 @@ public class Navire {
 	
 	public boolean estTouche(Coordonnee c) {
 	// Retourne true si et seulement si this a été touché par un tir en c.
-		return 
+		for (int i = 0; i < nbTouchees; i++) {
+			if (partiesTouchees[i].equals(c))
+				return true;
+		}
+		return false;
 	}
 	
 	public boolean estTouche() {
-		
+	// Retourne true si et seulement si this a au moins une partie touchée.
+		return nbTouchees > 0;
 	}
 	
 	public boolean estCoule() {
-		
+		return nbTouchees == tailleNavire();
 	}
-	
-	public static void main(String[] args) {
-		Navire test = new Navire (new Coordonnee(2,2),3,true);
-		test.contient(new Coordonnee(2,2));		
-	}
-	
 }
