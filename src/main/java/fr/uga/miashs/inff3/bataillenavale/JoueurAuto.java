@@ -12,7 +12,7 @@ public class JoueurAuto extends JoueurAvecGrille {
 	}
 
 	protected void retourAttaque(Coordonnee c, int etat) {
-		// jsp ce qu'il faut faire ici j'ai fait un peu au hasard
+		// pas sûr que le joueur auto ait besoin d'un retour
 	
 		if (etat==GAMEOVER)
 			System.out.println("Gagné !");
@@ -25,7 +25,7 @@ public class JoueurAuto extends JoueurAvecGrille {
 	}
 	
 	protected void retourDefense(Coordonnee c, int etat) {
-		//c est la coordonnée à laquelle le tir a eu lieu et etat le résultat de ce tir. etat ne peut être que TOUCHE, COULE, A_L_EAU, ou GAMEOVER. 
+		// pas sûr que le joueur auto ait besoin d'un retour
 		if (etat==GAMEOVER)
 			System.out.println("Vous avez perdu :(");
 		if (etat==TOUCHE)
@@ -39,15 +39,15 @@ public class JoueurAuto extends JoueurAvecGrille {
 	public Coordonnee choixAttaque() {
 		// genere coordonnee aleatoire
 		
-		//version simple :
-		//Coordonnee attaque = new Coordonnee(new Random().nextInt(super.getTailleGrille() - 1), new Random().nextInt(super.getTailleGrille() - 1));
-		//return attaque;
 		
+		Coordonnee attaque = new Coordonnee(new Random().nextInt(super.getTailleGrille() - 1), new Random().nextInt(super.getTailleGrille() - 1));
+		return attaque;
+		/*
 		Coordonnee attaque;
 		do {
 			attaque = new Coordonnee(new Random().nextInt(super.getTailleGrille() - 1), new Random().nextInt(super.getTailleGrille() - 1));
 		} while (super.grille.estDansTirsRecus(attaque) || attaque.voisine(???)); //methode de superclasse estDansTirsRecus private
 		
 		return attaque;
-	
+	*/
 }

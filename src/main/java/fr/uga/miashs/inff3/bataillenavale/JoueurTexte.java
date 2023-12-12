@@ -43,8 +43,11 @@ public class JoueurTexte extends JoueurAvecGrille {
 		// recueille au clavier la saisie de la coordonnée à attaquer
 		System.out.print("Coordonnées de l'attaque: ");
 		// enregistrement de l'input dans une nouvelle coordonnee
-		Coordonnee attaque = new Coordonnee(sc.nextLine());
-		return attaque; //CA RETOURNE RIEN
+		Coordonnee attaque = new Coordonnee(sc.next());
+		//exception si coordonnee hors des limites de la grille
+		if (attaque.getColonne() >= this.getTailleGrille() || attaque.getLigne() >= this.getTailleGrille()) 
+				throw new IllegalArgumentException("taille hors limites");
+		return attaque; 
 	}
 
 	public static void main(String[] args) {
