@@ -15,7 +15,7 @@ public class GrilleNavale {
 		nbTirsRecus = 0;
 	}
 	public GrilleNavale(int taille, int nbNavires) {
-		this.navires = new Navire [nbNavires];
+		this.navires = new Navire[nbNavires];
 		this.nbNavires = nbNavires;
 		this.taille = taille;
 		tirsRecus = null;
