@@ -43,11 +43,11 @@ public class Coordonnee implements Comparable<Coordonnee> {
 		return ligne;
 	}
 
-	public boolean equals(Object obj) {
+	public boolean equals(Object obj) { // 2 coordonnées identiques
 		return (obj instanceof Coordonnee) && compareTo((Coordonnee)obj)==0; 
 		
 	}
-	public boolean voisine(Coordonnee c) { //voisin si même ligne et colonne à côté, ou si même colonne mais ligne à côté. PAS voisin si colonne à côté et ligne à côté
+	public boolean voisine(Coordonnee c) { //voisin si même ligne mais colonne à côté, ou si même colonne mais ligne à côté. PAS voisin si diagonal
 		return ((this.ligne == c.ligne-1 || this.ligne == c.ligne+1) && this.colonne == c.colonne) || ((this.colonne == c.colonne-1 || this.colonne == c.colonne+1) && this.ligne == c.ligne);
 		
 	}
