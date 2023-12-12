@@ -113,7 +113,11 @@ public class GrilleNavale {
 		int [] tab = new int [0];
 		GrilleNavale test = new GrilleNavale (5, tab);
 		System.out.println(test.toString());
-		
+		Navire a = new Navire (new Coordonnee ("A2"), 2, true);
+		Navire b = new Navire (new Coordonnee ("B2"), 2, false);
+		Navire [] tab2 = new Navire [] { a, b};
+		System.out.println(tab2[0].toString());
+
 		
 	}
 }
