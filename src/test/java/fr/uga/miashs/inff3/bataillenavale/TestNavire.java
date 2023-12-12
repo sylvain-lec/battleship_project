@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-
 public class TestNavire {
 	private Navire n1;
 	private Navire n2;

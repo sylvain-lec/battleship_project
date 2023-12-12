@@ -21,10 +21,7 @@ public class GrilleNavale {
 		tirsRecus = null;
 		nbTirsRecus = 0;
 	}
-	public int getTaille() {
-		return taille;
-	}
-	
+
 	
 	public String toString() {
 		
@@ -68,13 +65,45 @@ public class GrilleNavale {
 		}
 		return grille.toString();
 	}
-		
-		
-		
+	public void CasesNavire (Coordonnee c){
+		if ()
+			
+	}
 		
 		
 
-
+	public Navire[] getNavires() {
+		return navires;
+	}
+	public void setNavires(Navire[] navires) {
+		this.navires = navires;
+	}
+	public int getNbNavires() {
+		return nbNavires;
+	}
+	public void setNbNavires(int nbNavires) {
+		this.nbNavires = nbNavires;
+	}
+	public Coordonnee[] getTirsRecus() {
+		return tirsRecus;
+	}
+	public void setTirsRecus(Coordonnee[] tirsRecus) {
+		this.tirsRecus = tirsRecus;
+	}
+	public int getNbTirsRecus() {
+		return nbTirsRecus;
+	}
+	public void setNbTirsRecus(int nbTirsRecus) {
+		this.nbTirsRecus = nbTirsRecus;
+	}
+	public int getTaille() {
+		return taille;
+	}
+	public void setTaille(int taille) {
+		this.taille = taille;
+	}
+	
+	
 	public boolean ajouteNavire(Navire n) {
 		
 		return true;
