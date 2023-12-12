@@ -28,21 +28,18 @@ public class GrilleNavale {
 		nbTirsRecus = 0;
 	}
 
-	
 	public String toString() {
 		
-		StringBuffer grille= new StringBuffer ();
-		StringBuffer premiereLigne = new StringBuffer ("   ");
-		StringBuffer ligneStandard= new StringBuffer ();
+		StringBuffer grille= new StringBuffer (); // Creer la grille
+		StringBuffer premiereLigne = new StringBuffer ("   "); //Creer la première ligne composée des lettres de l'alphabet
+		StringBuffer ligneStandard= new StringBuffer (); // Creer les autres lignes
 		
-		// On obtient la premiere ligne composée des lettre de l'alphabet
-	
+		// On obtient la premiere ligne 
 		
-		for (int i = 0;i <this.getTaille();i++) {
+		for (int i = 0; i < this.getTaille(); i++) {
 			char lettre =(char) ('A' + i);
-			premiereLigne.append(lettre+ " ");				
+			premiereLigne.append(lettre + " ");				
 		}
-		
 		grille.append(premiereLigne + "\n") ;
 		
 		// On crée les autres lignes 
@@ -50,14 +47,14 @@ public class GrilleNavale {
 		StringBuffer lignePoint = new StringBuffer("");
 		String chiffre2 ="";
 		
-		for (int j = 0;j <taille;j++) {
+		for (int j = 0;j < taille;j++) {
 			int chiffre = j+1;
 			
 			if (chiffre < 10)
 				chiffre2 = chiffre2 + " " +chiffre;
 			else
-				 chiffre2 = chiffre2 +chiffre;
-			for(int k = 0;k <taille;k++) {
+				 chiffre2 = chiffre2 + chiffre;
+			for(int k = 0;k < taille;k++) {
 				
 				char point = '.';
 				lignePoint.append(point +" ") ;
@@ -87,26 +84,26 @@ public class GrilleNavale {
 //				orientation += "vertical"
 				for (int k = 0; k < navires[i].tailleNavire(); k ++)
 					grille.setCharAt(Debut + largeurGrille*k, '#');
-			}
-			
-			//Positionnement des tirs libres
-			
+			}		
 		}
-		/*for (int i = 0; i < tirsRecus.length; i++) {
+
+		//Positionnement des tirs TODO
+		
+		for (int i = 0; i < tirsRecus.length; i++) {
 			int coordonneeLigne =tirsRecus[i].getColonne(); // Retrouver la colonne du navire i
 			int indiceColonne = tirsRecus[i].getLigne(); // Retrouver la ligne !!!réadapter quand le nbre est à 2 chiffres
-			int Debut = (longueurGrille*coordonneeLigne) + indiceColonne;
+			int Debut = (largeurGrille*coordonneeLigne) + indiceColonne;
 			
-			if (grille.charAt(Debut)[i].getFin().getLigne() == navires[i].getDebut().getLigne())
+			if (navires[i].getFin().getLigne() == navires[i].getDebut().getLigne())
 //				orientation += "horizontal"
 				for (int j = 0; j < navires[i].tailleNavire(); j++)
 					grille.setCharAt(Debut +j, '#');
 			else {
 //				orientation += "vertical"
 				for (int k = 1; k <= navires[i].tailleNavire(); k ++)
-					grille.setCharAt(Debut + longueurGrille, '#');
+					grille.setCharAt(Debut + largeurGrille, '#');
 			}	
-		}*/
+		}
 				
 		return grille.toString();	
 	}
