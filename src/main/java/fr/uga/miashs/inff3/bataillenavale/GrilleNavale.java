@@ -36,29 +36,32 @@ public class GrilleNavale {
 		
 		// On obtient la premiere ligne 
 		
-		for (int i = 0; i < this.getTaille(); i++) {
-			char lettre =(char) ('A' + i);
-			premiereLigne.append(lettre + " ");				
+		for (int i = 0; i < taille; i++) {
+			char lettre =(char) ('A' + i); 
+			premiereLigne.append(lettre + " ");	
 		}
 		grille.append(premiereLigne + "\n") ;
 		
 		// On crée les autres lignes 
 		
 		StringBuffer lignePoint = new StringBuffer("");
-		String chiffre2 ="";
+		String chiffre2 =""; 
 		
 		for (int j = 0;j < taille;j++) {
 			int chiffre = j+1;
 			
 			if (chiffre < 10)
-				chiffre2 = chiffre2 + " " +chiffre;
+				chiffre2 = chiffre2 + " " +chiffre; // nbre à un chiffre avec un espace avant
 			else
-				 chiffre2 = chiffre2 + chiffre;
+				 chiffre2 = chiffre2 + chiffre;  // nbre à deux chiffres sans espace avant
+//		    chiffre2 += (chiffre < 10) ? " " + chiffre : String.valueOf(chiffre); // Proposition de code_light
 			for(int k = 0;k < taille;k++) {
-				
 				char point = '.';
-				lignePoint.append(point +" ") ;
+				lignePoint.append(point +" ") ; //itération des ". "
+//				lignePoint.append('.' + " "); // Proposition de code_light
 			}
+
+//				Réinitialisations
 			ligneStandard.append(chiffre2 + " ");
 			ligneStandard.append(lignePoint);
 			grille.append(ligneStandard +  "\n");
@@ -72,36 +75,36 @@ public class GrilleNavale {
 		int largeurGrille = 4 + (taille* 2);
 		
 		for (int i = 0; i < nbNavires ; i++) {
-			int coordonneeLigne = navires[i].getDebut().getLigne() + 1; // Retrouver la colonne du navire i
-			int indiceColonne = navires[i].getDebut().getColonne()*2 + 3; // Retrouver la ligne !!!réadapter quand le nbre est à 2 chiffres
-			int Debut = (largeurGrille*coordonneeLigne) + indiceColonne; // point de départ
+			int coordonneeLigne = navires[i].getDebut().getLigne() + 1; // Retrouver la ligne du navire i
+			int indiceColonne = navires[i].getDebut().getColonne()*2 + 3; // Retrouver la colonne du navire i
+			int Debut = (largeurGrille*coordonneeLigne) + indiceColonne; // point de départ du navire
 
-			if (navires[i].getFin().getLigne() == navires[i].getDebut().getLigne())
-//				orientation += "horizontal"
+			if (navires[i].getFin().getLigne() == navires[i].getDebut().getLigne()) 
+//				Le navire est orienté en horizontal
 				for (int j = 0; j < navires[i].tailleNavire(); j++)
-					grille.setCharAt(Debut +j*2, '#');
+					grille.setCharAt(Debut +j*2, '#'); // remplace "." par "#" vers la droite sur la longueur du navire
 			else {
-//				orientation += "vertical"
+//				Le navire est orienté en vertical
 				for (int k = 0; k < navires[i].tailleNavire(); k ++)
-					grille.setCharAt(Debut + largeurGrille*k, '#');
+					grille.setCharAt(Debut + largeurGrille*k, '#');//remplace "." par "#" vers le bas sur la longueur du navire
 			}		
 		}
 
 		//Positionnement des tirs TODO
 		
 		for (int i = 0; i < tirsRecus.length; i++) {
-			int coordonneeLigne =tirsRecus[i].getColonne(); // Retrouver la colonne du navire i
-			int indiceColonne = tirsRecus[i].getLigne(); // Retrouver la ligne !!!réadapter quand le nbre est à 2 chiffres
-			int Debut = (largeurGrille*coordonneeLigne) + indiceColonne;
+			int coordonneeLigne = tirsRecus[i].getLigne() + 1 ; // Retrouver la ligne du tirsRecus
+			int indiceColonne = tirsRecus[i].getColonne()*2 +3; // Retrouver la colonne du tirsRecus
+			int PositionTirsRecus = (largeurGrille*coordonneeLigne) + indiceColonne;
 			
-			if (navires[i].getFin().getLigne() == navires[i].getDebut().getLigne())
-//				orientation += "horizontal"
-				for (int j = 0; j < navires[i].tailleNavire(); j++)
-					grille.setCharAt(Debut +j, '#');
+			if (grille.charAt(PositionTirsRecus) == '.')
+//				Une case libre ayant reçu un tir 
+//				for (int j = 0; j < navires[i].tailleNavire(); j++)
+					grille.setCharAt(PositionTirsRecus, 'O');
 			else {
-//				orientation += "vertical"
-				for (int k = 1; k <= navires[i].tailleNavire(); k ++)
-					grille.setCharAt(Debut + largeurGrille, '#');
+//				Une partie touchée d'un navire.
+//				for (int k = 1; k <= navires[i].tailleNavire(); k ++)
+					grille.setCharAt(PositionTirsRecus, 'X');
 			}	
 		}
 				
@@ -240,6 +243,7 @@ public class GrilleNavale {
 		Navire nav = new Navire(c, 2, false);
 		//System.out.println(""+ c.getLigne()+ c.getColonne());
 		//System.out.println(test.ajouteNavire(nav));
+		System.out.println(ajouteDansTirsRecus(c));
 		System.out.println(test2);
 	
 	}
