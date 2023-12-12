@@ -28,21 +28,18 @@ public class GrilleNavale {
 		nbTirsRecus = 0;
 	}
 
-	
 	public String toString() {
 		
-		StringBuffer grille= new StringBuffer ();
-		StringBuffer premiereLigne = new StringBuffer ("   ");
-		StringBuffer ligneStandard= new StringBuffer ();
+		StringBuffer grille= new StringBuffer (); // Creer la grille
+		StringBuffer premiereLigne = new StringBuffer ("   "); //Creer la première ligne composée des lettres de l'alphabet
+		StringBuffer ligneStandard= new StringBuffer (); // Creer les autres lignes
 		
-		// On obtient la premiere ligne composée des lettre de l'alphabet
-	
+		// On obtient la premiere ligne 
 		
-		for (int i = 0;i <this.getTaille();i++) {
+		for (int i = 0; i < this.getTaille(); i++) {
 			char lettre =(char) ('A' + i);
-			premiereLigne.append(lettre+ " ");				
+			premiereLigne.append(lettre + " ");				
 		}
-		
 		grille.append(premiereLigne + "\n") ;
 		
 		// On crée les autres lignes 
@@ -87,15 +84,15 @@ public class GrilleNavale {
 //				orientation += "vertical"
 				for (int k = 0; k < navires[i].tailleNavire(); k ++)
 					grille.setCharAt(Debut + largeurGrille*k, '#');
-			}
-			
-			//Positionnement des tirs libres
-			
+			}		
 		}
-		/*for (int i = 0; i < tirsRecus.length; i++) {
+
+		//Positionnement des tirs TODO
+		
+		for (int i = 0; i < tirsRecus.length; i++) {
 			int coordonneeLigne =tirsRecus[i].getColonne(); // Retrouver la colonne du navire i
 			int indiceColonne = tirsRecus[i].getLigne(); // Retrouver la ligne !!!réadapter quand le nbre est à 2 chiffres
-			int Debut = (longueurGrille*coordonneeLigne) + indiceColonne;
+			int Debut = (largeurGrille*coordonneeLigne) + indiceColonne;
 			
 			if (grille.charAt(Debut)[i].getFin().getLigne() == navires[i].getDebut().getLigne())
 //				orientation += "horizontal"
@@ -106,7 +103,7 @@ public class GrilleNavale {
 				for (int k = 1; k <= navires[i].tailleNavire(); k ++)
 					grille.setCharAt(Debut + longueurGrille, '#');
 			}	
-		}*/
+		}
 				
 		return grille.toString();	
 	}
