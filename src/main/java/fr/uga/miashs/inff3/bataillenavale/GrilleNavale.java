@@ -71,12 +71,12 @@ public class GrilleNavale {
 		}
 		
 		// Positionnement des navires
-		int longueurGrille = 3 + (taille* 2);
+		int largeurGrille = 3 + (taille* 2);
 		
 		for (int i = 0; i < navires.length ; i++) {
 			int coordonneeLigne =navires[i].toString().charAt(7); // Retrouver la colonne du navire i
 			int indiceColonne = navires.toString().charAt(8); // Retrouver la ligne !!!réadapter quand le nbre est à 2 chiffres
-			int Debut = (longueurGrille*coordonneeLigne) + indiceColonne;
+			int Debut = (largeurGrille*coordonneeLigne) + indiceColonne;
 		
 			if (navires[i].getFin().getLigne() == navires[i].getDebut().getLigne())
 //				orientation += "horizontal"
@@ -85,7 +85,7 @@ public class GrilleNavale {
 			else {
 //				orientation += "vertical"
 				for (int k = 1; k <= navires[i].tailleNavire(); k ++)
-					grille.setCharAt(Debut + longueurGrille, '#');
+					grille.setCharAt(Debut + largeurGrille, '#');
 			}
 			//Positionnement des tirs libres
 			
