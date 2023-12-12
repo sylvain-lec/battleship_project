@@ -107,9 +107,20 @@ public class GrilleNavale {
 	
 	
 	public boolean ajouteNavire(Navire n) {
-		
-		return true;
+		//Retourne true après avoir ajouté n à this si cet ajout est possible. L'ajout est impossible si n touche ou chevauche un navire déjà présent dans this, ou encore si n dépasse les limites de this.
+		for (int i = 0; i < navires.length; i++) {
+				if (this.navires[i].touche(n) || this.navires[i].chevauche(n) || n.getFin().getLigne() > taille || n.getFin().getColonne() > taille)
+					return false;
+		}
+		this.navires[nbNavires] = n;
+		nbNavires += 1;
+		return true;	
 	}
+	
+	public void placementAuto(int[] taillesNavires)
+	// Place automatiquement et aléatoirement taillesNavires.length navires dont les tailles sont données dans taillesNavire.
+	
+	
 	public static void main(String[] args) {
 		int [] tab = new int [0];
 		GrilleNavale test = new GrilleNavale (5, tab);

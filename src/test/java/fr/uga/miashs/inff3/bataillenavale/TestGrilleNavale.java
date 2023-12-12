@@ -55,6 +55,8 @@ public class TestGrilleNavale {
 		Navire a3 = new Navire(new Coordonnee("A3"), 2, false);
 		// b5 ne touche pas & ne chevauche pas a1
 		Navire b5 = new Navire(new Coordonnee("B3"), 2, true);
+		// navire hors limites
+		Navire a0 = new Navire(new Coordonnee(g1.getTaille()+1, g1.getTaille()+1), 2, true);
 		// Test ajout a1 seul
 		assertTrue(g1.ajouteNavire(a1));
 		// Test ajout b5 autorisé après a1
@@ -63,6 +65,8 @@ public class TestGrilleNavale {
 		assertFalse(g1.ajouteNavire(a2));
 		// Test ajout a3 NON autorisé après a1
 		assertFalse(g1.ajouteNavire(a3));
+		// Test ajout a0 NON autorisé 
+		assertFalse(g1.ajouteNavire(a0));
 	}
 
 	@Test
