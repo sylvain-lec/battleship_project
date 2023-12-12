@@ -110,7 +110,7 @@ public class GrilleNavale {
 	}
 	public static void main(String[] args) {
 		int [] tab = new int [0];
-		GrilleNavale test = new GrilleNavale (10, tab);
+		GrilleNavale test = new GrilleNavale (5, tab);
 		System.out.println(test.toString());
 		
 		
