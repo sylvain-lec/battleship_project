@@ -1,5 +1,7 @@
 package fr.uga.miashs.inff3.bataillenavale;
 
+import java.util.Scanner;
+
 public abstract class Joueur {
 	public final static int TOUCHE = 1;
 	public final static int COULE = 2;
@@ -36,9 +38,8 @@ public abstract class Joueur {
 	
 	public void jouerAvec(Joueur j) {
 		//Démarre une partie contre j. Avant de lancer le déroulement du jeu, il faut veiller à établir le lien entre les 2 joueurs et bien entendu vérifier qu’il puisse être établi.
-		//TODO
+		this.adversaire = j;
 		deroulementJeu(this, j);
-		
 	}
 	
 	private static void deroulementJeu(Joueur attaquant, Joueur defenseur) {
@@ -55,6 +56,23 @@ public abstract class Joueur {
 	}
 	
 	protected abstract void retourAttaque(Coordonnee c, int etat);
+		// Cette méthode est invoquée sur le joueur attaquant à la fin d’un tour de jeu. 
+		// c est la coordonnée à laquelle le tir a eu lieu et etat le résultat de l'attaque. 
+		// etat ne peut être que TOUCHE, COULE, A_L_EAU, ou GAMEOVER.
+		
+	
 	protected abstract void retourDefense(Coordonnee c, int etat);
+		// Cette méthode est invoquée sur le joueur défenseur à la fin d’un tour de jeu. 
+		// c est la coordonnée à laquelle le tir a eu lieu et etat le résultat de ce tir. 
+		// etat ne peut être que TOUCHE, COULE, A_L_EAU, ou GAMEOVER.
+		
+	
 	public abstract Coordonnee choixAttaque();
+		// Cette méthode est invoquée sur le joueur attaquant au début d’un tour de jeu. Elle retourne la coordonnée cible du tir effectué par l’attaquant.
+        
+	
 	public abstract int defendre(Coordonnee c);
+		// Cette méthode est invoquée sur le joueur défenseur après le choix de l’attaquant, 
+		// c est la coordonnée à laquelle l’attaquant a choisi d’effectuer un tir. 
+		// Elle retourne le résultat du tir qui ne peut être que TOUCHE, COULE, A_L_EAU, ou GAMEOVER.
+}
