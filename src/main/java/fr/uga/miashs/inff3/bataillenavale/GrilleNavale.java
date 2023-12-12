@@ -142,7 +142,7 @@ public class GrilleNavale {
 	
 	private boolean estDansGrille(Coordonnee c) {
 	// Retourne true si et seulement si c est dans this.
-		
+		return (c.getColonne() < taille && c.getLigne() < taille);
 	}
 	
 	private boolean estDansTirsRecus(Coordonnee c) {
