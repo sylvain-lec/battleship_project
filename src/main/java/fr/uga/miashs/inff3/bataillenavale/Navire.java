@@ -25,11 +25,8 @@ public class Navire {
 		return true;		
 	}
 	
-	private int tailleNavire() {
-		if (estVertical())
-			return (this.fin.getLigne() - this.debut.getLigne() + 1);
-		else
-			return (this.fin.getColonne() - this.debut.getColonne() + 1);
+	public int tailleNavire() {
+		return (this.fin.getLigne() - this.debut.getLigne() + this.fin.getColonne() - this.debut.getColonne());
 	}
 
 	public String toString() {

@@ -5,10 +5,20 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class TestGrilleNavale {
+	
+	private GrilleNavale g1;
+	private GrilleNavale g2;
+	private GrilleNavale g3;
 
 	@Test
 	public void testGrilleNavale() {
-		
+		// Vérifie que grille de taille 10 et 5 navires.
+		int[] tab = {2, 2, 3, 3, 4};
+		Navire n1 = new Navire(new Coordonnee("A1"), tab[0], true);
+		g1 = new GrilleNavale (10, tab);
+		assertEquals(10,g1.getTaille());
+		assertEquals(5,g1.getNbNavires());
+		assertEquals(2,g1.getNavires()[0].tailleNavire());
 	}
 
 	@Test
