@@ -74,9 +74,18 @@ public class GrilleNavale {
 		int largeurGrille = 3 + (taille* 2);
 		
 		for (int i = 0; i < navires.length ; i++) {
+<<<<<<< HEAD
+			int coordonneeLigne = navires[i].getDebut().getLigne() + 1; // Retrouver la colonne du navire i
+			int indiceColonne = navires[i].getDebut().getColonne() + 3; // Retrouver la ligne !!!réadapter quand le nbre est à 2 chiffres
+=======
 			int coordonneeLigne =navires[i].toString().charAt(7); // Retrouver la colonne du navire i
 			int indiceColonne = navires.toString().charAt(8); // Retrouver la ligne !!!réadapter quand le nbre est à 2 chiffres
+<<<<<<< HEAD
 			int Debut = (largeurGrille*coordonneeLigne) + indiceColonne;
+=======
+>>>>>>> branch 'main' of https://github.com/sylvainlecire/bataillenavaledciss2023
+			int Debut = (longueurGrille*coordonneeLigne) + indiceColonne;
+>>>>>>> branch 'main' of https://github.com/sylvainlecire/bataillenavaledciss2023.git
 		
 			if (navires[i].getFin().getLigne() == navires[i].getDebut().getLigne())
 //				orientation += "horizontal"
@@ -85,8 +94,13 @@ public class GrilleNavale {
 			else {
 //				orientation += "vertical"
 				for (int k = 1; k <= navires[i].tailleNavire(); k ++)
+<<<<<<< HEAD
 					grille.setCharAt(Debut + largeurGrille, '#');
+=======
+					grille.setCharAt((Debut + longueurGrille)*k, '#');
+>>>>>>> branch 'main' of https://github.com/sylvainlecire/bataillenavaledciss2023.git
 			}
+			
 			//Positionnement des tirs libres
 			
 		}
