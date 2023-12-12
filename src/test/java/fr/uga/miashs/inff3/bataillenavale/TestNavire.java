@@ -40,13 +40,13 @@ public class TestNavire {
 	
 	@Test
 	public void testTouche() {
-		
+		//TO DO
 
 	}
 	
 	@Test
 	public void testChevauche() {
-		
+		//TO DO
 	}
 	
 	@Test
