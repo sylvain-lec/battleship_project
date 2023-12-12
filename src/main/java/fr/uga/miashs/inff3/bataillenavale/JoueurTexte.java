@@ -14,6 +14,8 @@ public class JoueurTexte extends JoueurAvecGrille {
 	}
 	
 	protected void retourAttaque(Coordonnee c, int etat) {
+		// Réalise l'affichage à la console des étapes de jeu.
+		// c est la coordonnée à laquelle le tir a eu lieu et etat le résultat de l'attaque. etat ne peut être que TOUCHE, COULE, A_L_EAU, ou GAMEOVER.
 		
 	}
 	
@@ -22,6 +24,7 @@ public class JoueurTexte extends JoueurAvecGrille {
 	}
 	
 	public Coordonnee choixAttaque() {
+		// recueille au clavier la saisie de la coordonnée à attaquer
 		System.out.print("Coordonnées de l'attaque: ");
 		// enregistrement de l'input dans une nouvelle coordonnee
 		Coordonnee attaque = new Coordonnee(sc.nextLine());
