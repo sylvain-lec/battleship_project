@@ -56,7 +56,7 @@ public class Navire {
 		return false;
 	}
 	
-	public Coordonnee[] tableauCoordonnees() {
+	/*public Coordonnee[] tableauCoordonnees() {
 		Coordonnee[] tab = new Coordonnee[this.tailleNavire()];
 		if (this.estVertical()) {
 			// on boucle de la ligne du début à la fin pour this
@@ -73,7 +73,7 @@ public class Navire {
 			}
 		}
 		return tab;
-	}
+	}*/
 	
 	public boolean touche(Navire n) {
 		// Retourne true si et seulement si this est adjacent à n. L'adjacence par la diagonale ne compte pas.
@@ -105,14 +105,6 @@ public class Navire {
 	
 	public boolean chevauche(Navire n) {
 		// Retourne true si et seulement si this chevauche n, c'est-à-dire que this et n occupent au moins une coordonnée en commun.
-		/* Methode avec tableau de coordonnées
-		 for (int i = 0; i < this.tailleNavire(); i++) {
-			for (int j = 0; j < n.tailleNavire(); j++) {
-				if (this.tableauCoordonnees()[i].equals(n.tableauCoordonnees()[j]))
-					return true;
-			}
-		}
-		return false;*/
 		int debutLigneThis = debut.getLigne();
         int finLigneThis = fin.getLigne();
         int debutColonneThis = debut.getColonne();
@@ -125,18 +117,29 @@ public class Navire {
 		     
         boolean ligneCommune = (finLigneThis >= debutLigneN && debutLigneThis <= finLigneN); 
         boolean colonneCommune = (finColonneThis >= debutColonneN && debutColonneThis <= finColonneN);
-		
-		//debutColonneThis == finColonneN || finColonneThis == debutColonneN)
-		//debutLigneThis == finLigneN || finLigneThis == debutLigneN)
+        
+        return (ligneCommune && colonneCommune);
+        
+        /* Methode avec tableau de coordonnées
+		 for (int i = 0; i < this.tailleNavire(); i++) {
+			for (int j = 0; j < n.tailleNavire(); j++) {
+				if (this.tableauCoordonnees()[i].equals(n.tableauCoordonnees()[j]))
+					return true;
+			}
+		}
+		return false;*/
 	}
 	
 	public boolean recoitTir(Coordonnee c) {
 		// Retourne true si et seulement si this contient c. Dans ce cas, c est ajoutée aux parties touchées si nécessaire.
+		
+		
+		/* Methode avec tableau de coordonnées
 		for (int i = 0; i < this.tailleNavire(); i++) {
 				if (this.tableauCoordonnees()[i].equals(c))
 					return true;
 		}
-		return false;
+		return false;*/
 	}
 	
 	public boolean estTouche(Coordonnee c) {
