@@ -75,17 +75,15 @@ public class GrilleNavale {
 			int coordonneeLigne =navires[i].toString().charAt(7); // Retrouver la colonne du navire i
 			int indiceColonne = navires.toString().charAt(8); // Retrouver la ligne !!!réadapter quand le nbre est à 2 chiffres
 			int Debut = (longueurGrille*coordonneeLigne) + indiceColonne;
-			
-			grille.setCharAt(i, "#");
 		
-			if (Navire.fin.getLigne() == Navire.debut.getLigne())
+			if (navires[i].getFin().getLigne() == navires[i].getDebut().getLigne())
 //				orientation += "horizontal"
-				for (int j = 0; j < navires.length; j++)
-				navires.toString().charAt(k) = "#" ;
+				for (int j = Debut; j < navires[i].getFin().) +1; j++)
+					grille.setCharAt(j, '#');
 			else {
 //				orientation += "vertical"
-				for (int k = 0; k < navires.length; k++)
-					navires.toString().charAt(8) = "#" ;
+				for (int k = Debut; k < navires[i].; k++)
+					grille.setCharAt(k, '#');
 			}
 		}
 		return grille.toString();	
