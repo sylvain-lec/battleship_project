@@ -1,5 +1,7 @@
 package fr.uga.miashs.inff3.bataillenavale;
 
+import java.util.Random;
+
 public class GrilleNavale {
 	private Navire[] navires;
 	private int nbNavires;
@@ -133,12 +135,14 @@ public class GrilleNavale {
 	}
 	
 	public void placementAuto(int[] taillesNavires) {
-	// Place automatiquement et aléatoirement taillesNavires.length navires dont les tailles sont données dans taillesNavire.
-		
+		// Place automatiquement et aléatoirement taillesNavires.length navires dont les tailles sont données dans taillesNavire.
+		for (int i = 0; i < taillesNavires.length; i++)
+			this.ajouteNavire(new Navire(new Coordonnee(new Random().nextInt(taille), new Random().nextInt(taille)), taillesNavires[i], new Random().nextBoolean()));
 	}
 	
 	private boolean estDansGrille(Coordonnee c) {
 	// Retourne true si et seulement si c est dans this.
+		
 	}
 	
 	private boolean estDansTirsRecus(Coordonnee c) {
