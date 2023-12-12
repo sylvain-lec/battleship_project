@@ -16,19 +16,26 @@ public class JoueurTexte extends JoueurAvecGrille {
 	protected void retourAttaque(Coordonnee c, int etat) {
 		// Réalise l'affichage à la console des étapes de jeu.
 		// c est la coordonnée à laquelle le tir a eu lieu et etat le résultat de l'attaque. etat ne peut être que TOUCHE, COULE, A_L_EAU, ou GAMEOVER.
-		if (etat==4)
-			System.out.println("tir en " + c +" : gameover");
-		if (etat==1)
-			System.out.println("tir en " + c+" : navire touché");
-		if (etat==2)
-			System.out.println("tir en " + c+" : navire coulé");
-		if (etat==3)
-			System.out.println("tir en " + c+" : à l'eau");
+		if (etat==GAMEOVER)
+			System.out.println("Gagné !");
+		if (etat==TOUCHE)
+			System.out.println("tir en " + c+" : vous avez touché un navire");
+		if (etat==COULE)
+			System.out.println("tir en " + c+" : vous avez coulé un navire");
+		if (etat==A_L_EAU)
+			System.out.println("tir en " + c+" : vous avez tiré dans l'eau");
 	}
 	
 	protected void retourDefense(Coordonnee c, int etat) {
 		//c est la coordonnée à laquelle le tir a eu lieu et etat le résultat de ce tir. etat ne peut être que TOUCHE, COULE, A_L_EAU, ou GAMEOVER. 
-		this.retourAttaque(c, etat);
+		if (etat==GAMEOVER)
+			System.out.println("Vous avez perdu :(");
+		if (etat==TOUCHE)
+			System.out.println("tir en " + c+" : un navire a été touché");
+		if (etat==COULE)
+			System.out.println("tir en " + c+" : un navire a coulé");
+		if (etat==A_L_EAU)
+			System.out.println("tir en " + c+" : tout va bien yayyy");
 	}
 	
 	public Coordonnee choixAttaque() {
