@@ -68,8 +68,6 @@ public class GrilleNavale {
 		}
 		
 		int longueurGrille = 3 + (taille* 2);
-
-		
 		
 		for (int i = 0; i <= navires.length ; i++) {
 			int coordonneeLigne =navires[i].toString().charAt(7); // Retrouver la colonne du navire i
