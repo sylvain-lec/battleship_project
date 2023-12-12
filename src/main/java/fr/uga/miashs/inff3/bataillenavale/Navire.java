@@ -18,23 +18,16 @@ public class Navire {
 		nbTouchees = 0;
 	}
 	
-	private boolean estVertical() {
-		// test si navire est vertical = true
-		if (debut.getLigne() == fin.getLigne())
-			return false;
-		return true;		
-	}
-	
 	public int tailleNavire() {
 		return (1 + this.fin.getLigne() - this.debut.getLigne() + this.fin.getColonne() - this.debut.getColonne());
 	}
 
 	public String toString() {
 		String orientation = "";
-		if (!estVertical())
-			orientation += "vertical";
-		else {
+		if (this.fin.getLigne() == this.debut.getLigne())
 			orientation += "horizontal";
+		else {
+			orientation += "vertical";
 		}
 		// retourne un résultat de type "Navire(B1, 4, horizontal)"
 		return ("Navire(" + debut.toString() + ", " + this.tailleNavire() + ", " + orientation + ")");
