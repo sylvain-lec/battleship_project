@@ -31,8 +31,7 @@ public class Coordonnee implements Comparable<Coordonnee> {
 
 	public String toString() { 
 		char col = (char) ((char)colonne+'A'); //convertit la colonne en lettre majuscule
-		ligne += 1;
-		return ""+col+ligne;
+		return ""+col+(ligne+1);
 	}
 	
 	public int getColonne() {

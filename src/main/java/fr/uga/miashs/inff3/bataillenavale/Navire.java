@@ -8,6 +8,9 @@ public class Navire {
 	private int nbTouchees; 
 
 	public Navire(Coordonnee debut, int longueur, boolean estVertical){
+		if (longueur <= 0) {
+            throw new IllegalArgumentException("Longueur invalide");
+        }
 		this.debut = debut;
 		// si vertical, ligne impactée par longueur sinon c'est la colonne
 		if (estVertical) 
@@ -30,7 +33,7 @@ public class Navire {
 			orientation += "vertical";
 		}
 		// retourne un résultat de type "Navire(B1, 4, horizontal)"
-		return ("Navire(" + debut.toString() + ", " + this.tailleNavire() + ", " + orientation + ")");
+		return ("Navire(" + debut + ", " + this.tailleNavire() + ", " + orientation + ")");
 	}
 	
 	public Coordonnee getDebut() {

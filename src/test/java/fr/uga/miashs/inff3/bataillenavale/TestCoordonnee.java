@@ -50,6 +50,8 @@ public class TestCoordonnee {
 		assertEquals("A1",a1.toString());
 		assertEquals("B4",b4.toString());
 		assertEquals("A10",a10.toString());
+		assertEquals("A10",a10.toString());
+
 	}
 	
 	@Test
