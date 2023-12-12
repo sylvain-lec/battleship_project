@@ -67,6 +67,7 @@ public class GrilleNavale {
 		return grille.toString();
 	}
 	public void CasesNavire (Coordonnee c){
+		int tailleInit = 3 + (taille* 2);
 		
 			
 	}
@@ -113,10 +114,35 @@ public class GrilleNavale {
 		int [] tab = new int [0];
 		GrilleNavale test = new GrilleNavale (5, tab);
 		System.out.println(test.toString());
-		Navire a = new Navire (new Coordonnee ("A2"), 2, true);
+		Navire a = new Navire (new Coordonnee ("A12"), 3, true);
 		Navire b = new Navire (new Coordonnee ("B2"), 2, false);
 		Navire [] tab2 = new Navire [] { a, b};
+//		String orientation = "";
+//		if (tab[].fin.getLigne() == this.debut.getLigne())
+//			orientation += "horizontal";
+//		else {
+//			orientation += "vertical";
+//		}
+
+		System.out.println(tab2[0].getDebut().getLigne());
+		System.out.println(tab2[0].getDebut().getColonne());
+		System.out.println(tab2[0].getFin().getLigne());
+		System.out.println(tab2[0].getFin().getColonne());
+		System.out.println(tab2[0].getDebut());
+		System.out.println(tab2[0].getFin());
+		System.out.println("----------------");
+		System.out.println(tab2[0].tailleNavire());
 		System.out.println(tab2[0].toString());
+		System.out.println(tab2[0].tailleNavire());
+		System.out.println(tab2[0].toString());
+		System.out.println(tab2[0].tailleNavire());
+		System.out.println(tab2[0].toString());
+		System.out.println(tab2[0].tailleNavire());
+		System.out.println(tab2[0].toString());
+
+
+
+
 
 		
 	}
