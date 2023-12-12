@@ -24,6 +24,34 @@ public class GrilleNavale {
 	public int getTaille() {
 		return taille;
 	}
+	
+	
+	public String toString() {
+		
+		String grille;
+		String premiereLigne = " ";
+		String ligneStandard;
+		
+		// On obtient la premiere ligne composée des lettre de l'alphabet
+		
+		for (int i = 0;i <this.getTaille;i++) {
+			char lettre =(char) ('A' + i);
+			premiereLigne=premiereLigne + lettre + " ";				
+		}
+		
+		// On crée les autres lignes 
+		
+		for (int j = 0;j <this.getTaille;j++) {
+			
+		}
+		
+		
+		
+		
+		
+		
+	}
+
 	public boolean ajouteNavire(Navire n) {
 		
 		
