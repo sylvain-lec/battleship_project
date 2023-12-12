@@ -134,6 +134,39 @@ public class GrilleNavale {
 	
 	public void placementAuto(int[] taillesNavires) {
 	// Place automatiquement et aléatoirement taillesNavires.length navires dont les tailles sont données dans taillesNavire.
+		
+	}
+	
+	private boolean estDansGrille(Coordonnee c) {
+	// Retourne true si et seulement si c est dans this.
+	}
+	
+	private boolean estDansTirsRecus(Coordonnee c) {
+	// Retourne true si et seulement si c correspond à un tir reçu par this.
+	}
+	
+	private boolean ajouteDansTirsRecus(Coordonnee c) {
+	// Ajoute c aux tirs reçus de this si nécessaire. Retourne true si et seulement si this est modifié.
+	}
+	
+	public boolean recoitTir(Coordonnee c) {
+	// Ajoute c aux tirs reçus de this si nécessaire. Retourne true si et seulement si c ne correspondait pas déjà à un tir reçu et a permis de toucher un navire de this.
+	}
+	
+	public boolean estTouche(Coordonnee c) {
+	// Retourne true si et seulement si un des navires présents dans this a été touché en c.
+	}
+	
+	public boolean estALEau(Coordonnee c) {
+	// Retourne true si et seulement si c correspond à un tir reçu dans l'eau par this.
+	}
+	
+	public boolean estCoule(Coordonnee c) {
+	// Retourne true si et seulement si un des navires présents dans this a été touché en c et est coulé.
+	}
+	
+	public boolean perdu() {
+	//Retourne true si et seulement si tous les navires de this ont été coulés.
 	}
 	
 	
