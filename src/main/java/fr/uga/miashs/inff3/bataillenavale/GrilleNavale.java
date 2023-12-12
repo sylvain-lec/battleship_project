@@ -11,7 +11,11 @@ public class GrilleNavale {
 
 	public GrilleNavale(int taille, int[] taillesNavires) {
 		// permet d'obtenir une grille navale de taille taille dans laquelle ont été placés automatiquement taillesNavires.length navires dont les tailles sont données dans taillesNavires.
-		
+		if (taille<1 || taille>26)
+			throw new IllegalArgumentException("mauvaise taille"); //Vérifie la taille de la grille
+		for (int i = 0 ; i<taillesNavires.length ; i++) //vérifie si les navires sont au moins de taille 1
+			if (taillesNavires[i]<1)
+				throw new IllegalArgumentException("taille minimale navire : 1");
 		this.navires = new Navire[taillesNavires.length];
 		this.nbNavires = 0;
 		this.taille = taille;
@@ -22,6 +26,8 @@ public class GrilleNavale {
 	
 	public GrilleNavale(int taille, int nbNavires) {
 		// permet d'obtenir une grille navale vide de taille taille pouvant accueillir jusqu'à nbNavires.
+		if (taille<1 || taille>26)
+			throw new IllegalArgumentException("mauvaise taille");
 		this.navires = new Navire[nbNavires];
 		this.nbNavires = 0;
 		this.taille = taille;

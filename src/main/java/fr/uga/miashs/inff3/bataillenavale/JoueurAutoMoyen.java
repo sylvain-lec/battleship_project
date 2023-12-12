@@ -41,7 +41,7 @@ public class JoueurAutoMoyen extends JoueurAuto {
 
 	}
 	public static void main(String[] args) {
-		GrilleNavale g = new GrilleNavale(10,2);
+		GrilleNavale g = new GrilleNavale(28,2);
 		JoueurAutoMoyen j = new JoueurAutoMoyen(g, "sylvain");
 		System.out.println(j.choixAttaque()); 
 
