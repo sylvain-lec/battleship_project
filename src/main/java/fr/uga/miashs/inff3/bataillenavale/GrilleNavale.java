@@ -66,28 +66,28 @@ public class GrilleNavale {
 		}
 		return grille.toString();
 	}
-	public String CasesNavire (Coordonnee c) {
-		int longueurGrille = 3 + (taille* 2);
-		int coordonneeLigne = Navire.toString().charAt(7);// Retrouver la colonne
-		int indiceColonne = navires.toString().charAt(8); // Retrouver la ligne !!!réadapter quand le nbre est à 2 chiffres
-		
-		int Debut = (longueurGrille*coordonneeLigne) + indiceColonne;
-		
-		for (int i = Debut; i <= navires.length; i++) {
-			navires.toString().charAt(i)= "#" ;
-			
-			if (Navire.fin.getLigne() == Navire.debut.getLigne())
-//				orientation += "horizontal"
-				for (int j = 0; j < navires.length; j++)
-				navires.toString().charAt(k) = "#" ;
-			else {
-//				orientation += "vertical"
-				for (int k = 0; k < navires.length; k++)
-					navires.toString().charAt(8) = "#" ;
-			}
-		}
-			
-	}
+//	public String CasesNavire (Coordonnee c) {
+//		int longueurGrille = 3 + (taille* 2);
+//		int coordonneeLigne = Navire.toString().charAt(7);// Retrouver la colonne
+//		int indiceColonne = navires.toString().charAt(8); // Retrouver la ligne !!!réadapter quand le nbre est à 2 chiffres
+//		
+//		int Debut = (longueurGrille*coordonneeLigne) + indiceColonne;
+//		
+//		for (int i = Debut; i <= navires.length; i++) {
+//			navires.toString().charAt(i)= "#" ;
+//			
+//			if (Navire.fin.getLigne() == Navire.debut.getLigne())
+////				orientation += "horizontal"
+//				for (int j = 0; j < navires.length; j++)
+//				navires.toString().charAt(k) = "#" ;
+//			else {
+////				orientation += "vertical"
+//				for (int k = 0; k < navires.length; k++)
+//					navires.toString().charAt(8) = "#" ;
+//			}
+//		}
+//			
+//	}
 
 	public Navire[] getNavires() {
 		return navires;
