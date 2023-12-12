@@ -26,8 +26,10 @@ public class GrilleNavale {
 	
 	public GrilleNavale(int taille, int nbNavires) {
 		// permet d'obtenir une grille navale vide de taille taille pouvant accueillir jusqu'à nbNavires.
-		if (taille<1 || taille>26)
+		if (taille<1 || taille>26) //vérifie la taille de la grille
 			throw new IllegalArgumentException("mauvaise taille");
+		if (nbNavires < 1)
+			throw new IllegalArgumentException("nombre minimum navires : 1");
 		this.navires = new Navire[nbNavires];
 		this.nbNavires = 0;
 		this.taille = taille;
