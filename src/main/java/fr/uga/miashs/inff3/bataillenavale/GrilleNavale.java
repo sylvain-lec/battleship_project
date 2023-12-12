@@ -28,23 +28,23 @@ public class GrilleNavale {
 	
 	public String toString() {
 		
-		String grille=" ";
-		String premiereLigne = "   ";
-		String ligneStandard="";
+		StringBuffer grille= new StringBuffer ();
+		StringBuffer premiereLigne = new StringBuffer ("   ");
+		StringBuffer ligneStandard= new StringBuffer ();
 		
 		// On obtient la premiere ligne composée des lettre de l'alphabet
 	
 		
 		for (int i = 0;i <this.getTaille();i++) {
 			char lettre =(char) ('A' + i);
-			premiereLigne=premiereLigne + lettre+ " ";				
+			premiereLigne.append(lettre+ " ");				
 		}
 		
-		grille = grille + premiereLigne + "\n" ;
+		grille.append(premiereLigne + "\n") ;
 		
 		// On crée les autres lignes 
 		
-		String lignePoint = " ";
+		StringBuffer lignePoint = new StringBuffer("");
 		String chiffre2 ="";
 		
 		for (int j = 0;j <this.getTaille();j++) {
@@ -57,16 +57,16 @@ public class GrilleNavale {
 			for(int k = 0;k <this.getTaille();k++) {
 				
 				char point = '.';
-				lignePoint = lignePoint + point +" " ;
+				lignePoint.append(point +" ") ;
 			}
-			ligneStandard = ligneStandard + chiffre2 + " ";
-			ligneStandard = ligneStandard + lignePoint;
-			grille = grille + ligneStandard +  "\n";
-			ligneStandard = "";
-			lignePoint = " ";
+			ligneStandard.append(chiffre2 + " ");
+			ligneStandard.append(lignePoint);
+			grille.append(ligneStandard +  "\n");
+			ligneStandard = new StringBuffer ("");
+			lignePoint = new StringBuffer ();
 			chiffre2="";
 		}
-		return grille;
+		return grille.toString();
 	}
 		
 		
