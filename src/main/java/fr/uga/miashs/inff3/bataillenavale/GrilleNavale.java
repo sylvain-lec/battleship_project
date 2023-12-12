@@ -66,7 +66,7 @@ public class GrilleNavale {
 		return grille.toString();
 	}
 	public void CasesNavire (Coordonnee c){
-		if ()
+		
 			
 	}
 		
