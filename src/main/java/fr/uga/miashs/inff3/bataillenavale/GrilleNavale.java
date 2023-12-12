@@ -69,6 +69,7 @@ public class GrilleNavale {
 			chiffre2="";
 		}
 		
+		// Positionnement des navires
 		int longueurGrille = 3 + (taille* 2);
 		
 		for (int i = 0; i <= navires.length ; i++) {
@@ -85,7 +86,25 @@ public class GrilleNavale {
 				for (int k = 1; k <= navires[i].tailleNavire(); k ++)
 					grille.setCharAt(Debut + longueurGrille, '#');
 			}
+			//Positionnement des tirs libres
+			
 		}
+		for (int i = 0; i < tirsRecus.length; i++) {
+			int coordonneeLigne =tirsRecus[i].getColonne(); // Retrouver la colonne du navire i
+			int indiceColonne = tirsRecus[i].getLigne(); // Retrouver la ligne !!!réadapter quand le nbre est à 2 chiffres
+			int Debut = (longueurGrille*coordonneeLigne) + indiceColonne;
+			
+			if (grille.charAt(Debut)[i].getFin().getLigne() == navires[i].getDebut().getLigne())
+//				orientation += "horizontal"
+				for (int j = 0; j < navires[i].tailleNavire(); j++)
+					grille.setCharAt(Debut +j, '#');
+			else {
+//				orientation += "vertical"
+				for (int k = 1; k <= navires[i].tailleNavire(); k ++)
+					grille.setCharAt(Debut + longueurGrille, '#');
+			}	
+		}
+				
 		return grille.toString();	
 	}
 
@@ -164,22 +183,32 @@ public class GrilleNavale {
 	
 	public boolean recoitTir(Coordonnee c) {
 	// Ajoute c aux tirs reçus de this si nécessaire. Retourne true si et seulement si c ne correspondait pas déjà à un tir reçu et a permis de toucher un navire de this.
+		return true;
+
 	}
 	
 	public boolean estTouche(Coordonnee c) {
 	// Retourne true si et seulement si un des navires présents dans this a été touché en c.
+		return true;
+
 	}
 	
 	public boolean estALEau(Coordonnee c) {
 	// Retourne true si et seulement si c correspond à un tir reçu dans l'eau par this.
+		return true;
+
 	}
 	
 	public boolean estCoule(Coordonnee c) {
 	// Retourne true si et seulement si un des navires présents dans this a été touché en c et est coulé.
+		return true;
+
 	}
 	
 	public boolean perdu() {
 	//Retourne true si et seulement si tous les navires de this ont été coulés.
+		return true;
+
 	}
 	
 	
