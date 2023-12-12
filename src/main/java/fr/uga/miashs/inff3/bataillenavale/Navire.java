@@ -14,6 +14,8 @@ public class Navire {
 			this.fin = new Coordonnee (this.debut.getLigne() + (longueur - 1), this.debut.getColonne());
 		else
 			this.fin = new Coordonnee (this.debut.getLigne(), this.debut.getColonne() + (longueur - 1));
+		partiesTouchees = new Coordonnee[10]; // 10 c'est bien
+		nbTouchees = 0;
 	}
 	
 	public boolean estVertical() {
@@ -117,6 +119,8 @@ public class Navire {
 		     
         boolean ligneCommune = (finLigneThis >= debutLigneN && debutLigneThis <= finLigneN); 
         boolean colonneCommune = (finColonneThis >= debutColonneN && debutColonneThis <= finColonneN);
+        partiesTouchees
+        nbTouchees += 1;
         
         return (ligneCommune && colonneCommune);
         
@@ -132,7 +136,15 @@ public class Navire {
 	
 	public boolean recoitTir(Coordonnee c) {
 		// Retourne true si et seulement si this contient c. Dans ce cas, c est ajoutée aux parties touchées si nécessaire.
-		
+		int debutLigneThis = debut.getLigne();
+        int finLigneThis = fin.getLigne();
+        int debutColonneThis = debut.getColonne();
+        int finColonneThis = fin.getColonne();
+        
+        boolean ligneCommune = (finLigneThis >= c.getLigne() && debutLigneThis <= c.getLigne()); 
+        boolean colonneCommune = (finColonneThis >= c.getColonne() && debutColonneThis <= c.getColonne());
+        
+        return (ligneCommune && colonneCommune);
 		
 		/* Methode avec tableau de coordonnées
 		for (int i = 0; i < this.tailleNavire(); i++) {
@@ -143,7 +155,8 @@ public class Navire {
 	}
 	
 	public boolean estTouche(Coordonnee c) {
-		
+	// Retourne true si et seulement si this a été touché par un tir en c.
+		return 
 	}
 	
 	public boolean estTouche() {
