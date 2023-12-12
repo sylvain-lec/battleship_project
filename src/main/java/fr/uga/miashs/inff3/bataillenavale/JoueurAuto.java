@@ -38,16 +38,7 @@ public class JoueurAuto extends JoueurAvecGrille {
 	
 	public Coordonnee choixAttaque() {
 		// genere coordonnee aleatoire
-		
-		
 		Coordonnee attaque = new Coordonnee(new Random().nextInt(super.getTailleGrille() - 1), new Random().nextInt(super.getTailleGrille() - 1));
 		return attaque;
-		/*
-		Coordonnee attaque;
-		do {
-			attaque = new Coordonnee(new Random().nextInt(super.getTailleGrille() - 1), new Random().nextInt(super.getTailleGrille() - 1));
-		} while (super.grille.estDansTirsRecus(attaque) || attaque.voisine(???)); //methode de superclasse estDansTirsRecus private
-		
-		return attaque;
-	*/
+		}
 }

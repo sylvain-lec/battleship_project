@@ -28,4 +28,9 @@ public abstract class JoueurAvecGrille extends Joueur {
 		// sinon c'est dans l'eau
 		return A_L_EAU;
 	}
+
+	public GrilleNavale getGrille() {
+		return grille;
+	}
+	
 }

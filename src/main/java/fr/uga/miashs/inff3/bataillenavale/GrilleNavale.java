@@ -11,6 +11,7 @@ public class GrilleNavale {
 
 	public GrilleNavale(int taille, int[] taillesNavires) {
 		// permet d'obtenir une grille navale de taille taille dans laquelle ont été placés automatiquement taillesNavires.length navires dont les tailles sont données dans taillesNavires.
+		
 		this.navires = new Navire[taillesNavires.length];
 		this.nbNavires = 0;
 		this.taille = taille;
