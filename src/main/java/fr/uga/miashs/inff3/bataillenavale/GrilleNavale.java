@@ -47,14 +47,14 @@ public class GrilleNavale {
 		StringBuffer lignePoint = new StringBuffer("");
 		String chiffre2 ="";
 		
-		for (int j = 0;j <taille;j++) {
+		for (int j = 0;j < taille;j++) {
 			int chiffre = j+1;
 			
 			if (chiffre < 10)
 				chiffre2 = chiffre2 + " " +chiffre;
 			else
-				 chiffre2 = chiffre2 +chiffre;
-			for(int k = 0;k <taille;k++) {
+				 chiffre2 = chiffre2 + chiffre;
+			for(int k = 0;k < taille;k++) {
 				
 				char point = '.';
 				lignePoint.append(point +" ") ;
@@ -94,14 +94,14 @@ public class GrilleNavale {
 			int indiceColonne = tirsRecus[i].getLigne(); // Retrouver la ligne !!!réadapter quand le nbre est à 2 chiffres
 			int Debut = (largeurGrille*coordonneeLigne) + indiceColonne;
 			
-			if (grille.charAt(Debut)[i].getFin().getLigne() == navires[i].getDebut().getLigne())
+			if (navires[i].getFin().getLigne() == navires[i].getDebut().getLigne())
 //				orientation += "horizontal"
 				for (int j = 0; j < navires[i].tailleNavire(); j++)
 					grille.setCharAt(Debut +j, '#');
 			else {
 //				orientation += "vertical"
 				for (int k = 1; k <= navires[i].tailleNavire(); k ++)
-					grille.setCharAt(Debut + longueurGrille, '#');
+					grille.setCharAt(Debut + largeurGrille, '#');
 			}	
 		}
 				
