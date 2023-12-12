@@ -7,13 +7,13 @@ public class GrilleNavale {
 	private int nbNavires;
 	private int taille;
 	private Coordonnee[] tirsRecus;
-	private int nbTirsRecus;
+	private int nbTirsRecus; // tjrs utiliser cet int pour avoir le nbre de tirs recus car le tableau est init à 10.
 
 	public GrilleNavale(int taille, int[] taillesNavires) {
 		this.navires = new Navire[taillesNavires.length];
 		this.nbNavires = taillesNavires.length;
 		this.taille = taille;
-		tirsRecus = null;
+		tirsRecus = new Coordonnee[10];
 		nbTirsRecus = 0;
 	}
 	
@@ -21,7 +21,7 @@ public class GrilleNavale {
 		this.navires = new Navire[nbNavires];
 		this.nbNavires = nbNavires;
 		this.taille = taille;
-		tirsRecus = null;
+		tirsRecus = new Coordonnee[10];
 		nbTirsRecus = 0;
 	}
 
@@ -139,16 +139,22 @@ public class GrilleNavale {
 	}
 	
 	private boolean estDansGrille(Coordonnee c) {
-	// Retourne true si et seulement si c est dans this.
-		
+		// Retourne true si et seulement si c est dans this.
+		return (c.getColonne() < taille && c.getLigne() < taille);
 	}
 	
 	private boolean estDansTirsRecus(Coordonnee c) {
-	// Retourne true si et seulement si c correspond à un tir reçu par this.
+		// Retourne true si et seulement si c correspond à un tir reçu par this.
+		for (int i = 0; i < nbTirsRecus; i++) {
+			if (tirsRecus[i].equals(c))
+				return true;
+		}
+		return false;
 	}
 	
 	private boolean ajouteDansTirsRecus(Coordonnee c) {
-	// Ajoute c aux tirs reçus de this si nécessaire. Retourne true si et seulement si this est modifié.
+		// Ajoute c aux tirs reçus de this si nécessaire. Retourne true si et seulement si this est modifié.
+		
 	}
 	
 	public boolean recoitTir(Coordonnee c) {
