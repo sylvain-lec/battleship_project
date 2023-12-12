@@ -76,12 +76,12 @@ public class GrilleNavale {
 		
 			if (navires[i].getFin().getLigne() == navires[i].getDebut().getLigne())
 //				orientation += "horizontal"
-				for (int j = Debut; j < navires[i].getFin().) +1; j++)
-					grille.setCharAt(j, '#');
+				for (int j = 0; j < navires[i].tailleNavire(); j++)
+					grille.setCharAt(Debut +j, '#');
 			else {
 //				orientation += "vertical"
-				for (int k = Debut; k < navires[i].; k++)
-					grille.setCharAt(k, '#');
+				for (int k = 1; k <= navires[i].tailleNavire(); k ++)
+					grille.setCharAt(Debut + longueurGrille, '#');
 			}
 		}
 		return grille.toString();	
@@ -182,15 +182,15 @@ public class GrilleNavale {
 	
 	
 	public static void main(String[] args) {
-		int [] tab = new int [0];
-		GrilleNavale test = new GrilleNavale (5, tab);
-		System.out.println(test.toString());
-		Navire a = new Navire (new Coordonnee ("A12"), 3, true);
+		int [] tab = {2, 2, 3};
+		Navire a = new Navire (new Coordonnee ("A2"), 3, true);
 		Navire b = new Navire (new Coordonnee ("B2"), 2, false);
 		Navire [] tab2 = new Navire [] { a, b};
-		System.out.println(tab2[0].toString());
-		System.out.println(tab2[0].toString().charAt(7));
+		GrilleNavale test = new GrilleNavale(10, tab);
+		test.placementAuto(tab);
+		System.out.println(test);
 
+		
 	
 	}
 }
