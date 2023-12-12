@@ -132,8 +132,9 @@ public class GrilleNavale {
 		return true;	
 	}
 	
-	public void placementAuto(int[] taillesNavires)
+	public void placementAuto(int[] taillesNavires) {
 	// Place automatiquement et aléatoirement taillesNavires.length navires dont les tailles sont données dans taillesNavire.
+	}
 	
 	
 	public static void main(String[] args) {
