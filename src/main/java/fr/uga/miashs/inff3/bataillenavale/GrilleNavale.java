@@ -184,6 +184,16 @@ public class GrilleNavale {
 	
 	private boolean ajouteDansTirsRecus(Coordonnee c) {
 		// Ajoute c aux tirs reçus de this si nécessaire. Retourne true si et seulement si this est modifié.
+		
+		// Vérif si tableau tirsRecus pleint, dans ce cas, ajoute 10 slots
+		if (tirsRecus.length == nbTirsRecus) {
+			Coordonnee[] tab = new Coordonnee[tirsRecus.length+10];
+			for (int i = 0; i < nbTirsRecus; i++) {
+				tab[i] = tirsRecus[i];
+			}
+			tirsRecus = tab;
+		}
+		// Si le tir n'est pas déjà reçu sur c, alors enregistre et incrémente nbTirsRecus + return true
 		if (!(this.estDansTirsRecus(c))) {
 			tirsRecus[nbTirsRecus] = c;
 			nbTirsRecus ++;
