@@ -49,7 +49,7 @@ public class FenetreJoueur extends JFrame {
 		grilleTirs = new GrilleGraphique(taille);
 		grilleDefense = new GrilleNavaleGraphique(taille);
 		JoueurGraphique joueur = new JoueurGraphique(grilleDefense, grilleTirs, nom);
-		
+		grilleDefense.placementAuto(null);
 		
 		// A VALIDER !
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
