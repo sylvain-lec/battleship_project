@@ -255,8 +255,12 @@ public class GrilleNavale {
 		//System.out.println(""+ c.getLigne()+ c.getColonne());
 		Coordonnee [] tab2 = {c,d};
 		test2.ajouteDansTirsRecus(e);
+		System.out.println(test2.getNbTirsRecus());
 		test2.setTirsRecus(tab2);
-		System.out.println(test2.toString());
+		System.out.println(test2.getNbTirsRecus());
+		test2.ajouteDansTirsRecus(c);
+		System.out.println(test2.getNbTirsRecus());
+//		System.out.println(test2.toString());
 		
 
 	
