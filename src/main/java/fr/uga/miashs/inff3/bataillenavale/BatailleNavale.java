@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 public class BatailleNavale {
+	
+	private Joueur joueur1, joueur2;
+	private int tailleGrille;
 
 	private JFrame frame;
 
