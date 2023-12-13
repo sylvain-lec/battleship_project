@@ -101,11 +101,7 @@ public class GrilleNavale {
 
 		//Positionnement des tirs TODO
 		
-<<<<<<< HEAD
-		/*for (int i = 0; i < tirsRecus.length; i++) {
-=======
 		for (int i = 0; i < nbTirsRecus; i++) {
->>>>>>> branch 'main' of https://github.com/sylvainlecire/bataillenavaledciss2023.git
 			int coordonneeLigne = tirsRecus[i].getLigne() + 1 ; // Retrouver la ligne du tirsRecus
 			int indiceColonne = tirsRecus[i].getColonne()*2 +3; // Retrouver la colonne du tirsRecus
 			int PositionTirsRecus = (largeurGrille*coordonneeLigne) + indiceColonne;
@@ -119,7 +115,7 @@ public class GrilleNavale {
 //				for (int k = 1; k <= navires[i].tailleNavire(); k ++)
 					grille.setCharAt(PositionTirsRecus, 'X');
 			}	
-		}*/
+		}
 				
 		return grille.toString();	
 	}
@@ -255,16 +251,11 @@ public class GrilleNavale {
 		Coordonnee c = new Coordonnee("A7");
 		Coordonnee d = new Coordonnee("B2");
 		Coordonnee [] tab2 = {c,d};
-		test2.setTirsRecus(tab2); 
-		test2.setNbTirsRecus(tirsRecus.length());
 		Coordonnee e = new Coordonnee("C5");
 		test2.ajouteDansTirsRecus(e);
-<<<<<<< HEAD
 		//System.out.println(""+ c.getLigne()+ c.getColonne());
-=======
 		System.out.println(test2.tirsRecus[0]);
 		//test2.setTirsRecus(tab2);
->>>>>>> branch 'main' of https://github.com/sylvainlecire/bataillenavaledciss2023.git
 		System.out.println(test2.toString());
 
 	}
