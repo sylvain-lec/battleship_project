@@ -172,6 +172,7 @@ public class BatailleNavale {
 				catch(NumberFormatException ex) {
                     // Texte n'est pas un int valide, ca degage
                     System.err.println("Un nombre svp");
+				}
                     
 				// Initialise type de joueurs en fonction du choix des boutons radios
 				//Joueur 1
@@ -212,9 +213,9 @@ public class BatailleNavale {
 				demarrerPartie();
 				//---------------------------------------
 			}
-		};
+		});
 		panel_bas.add(boutton_go);
 		
 	}
-
+	
 }
