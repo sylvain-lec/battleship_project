@@ -5,13 +5,11 @@ public class JoueurGraphique extends JoueurAvecGrille {
 	private GrilleGraphique grilleTirs;
 	
 	// CONSTRUCTEURS
-	public JoueurGraphique(GrilleNavaleGraphique grilleDefense,
-	GrilleGraphique grilleTirs, String nom) {
+	public JoueurGraphique(GrilleNavaleGraphique grilleDefense, GrilleGraphique grilleTirs, String nom) {
 		
 	}
 	
-	public JoueurGraphique(GrilleNavaleGraphique grilleDefense,
-	GrilleGraphique grilleTirs) {
+	public JoueurGraphique(GrilleNavaleGraphique grilleDefense, GrilleGraphique grilleTirs) {
 		
 	}
 	
