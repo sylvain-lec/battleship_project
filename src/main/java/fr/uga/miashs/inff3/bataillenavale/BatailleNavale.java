@@ -179,8 +179,9 @@ public class BatailleNavale {
 				// Initialise type de joueurs en fonction du choix des boutons radios
 				//Joueur 1
 				if(Joueur1Graphique.isSelected()) {
-					GrilleNavaleGraphique grilledef = new GrilleNavaleGraphique(tailleGrille);
-					GrilleGraphique grilletir = new GrilleGraphique(tailleGrille);
+					/*GrilleNavaleGraphique grilledef = new GrilleNavaleGraphique(tailleGrille);
+					GrilleGraphique grilletir = new GrilleGraphique(tailleGrille);*/
+					FenetreJoueur F1 = new FenetreJoueur(nomJoueur1.getText(), tailleGrille);
 					joueur1 = new JoueurGraphique (grilledef, grilletir, nomJoueur1.getText());
 				}
 				else if(Joueur1Texte.isSelected()) {
@@ -195,8 +196,9 @@ public class BatailleNavale {
 				}
 				// Joueur 2
 				if(Joueur2Graphique.isSelected()) {
-					GrilleNavaleGraphique grilledef2 = new GrilleNavaleGraphique(tailleGrille);
-					GrilleGraphique grilletir2 = new GrilleGraphique(tailleGrille);
+					/*GrilleNavaleGraphique grilledef2 = new GrilleNavaleGraphique(tailleGrille);
+					GrilleGraphique grilletir2 = new GrilleGraphique(tailleGrille); */
+					FenetreJoueur F2 = new FenetreJoueur(nomJoueur2.getText(), tailleGrille);
 					joueur2 = new JoueurGraphique (grilledef2, grilletir2, nomJoueur2.getText());
 				}
 				else if(Joueur2Texte.isSelected()) {
