@@ -35,7 +35,7 @@ public class GrilleNavaleGraphique extends GrilleNavale {
 				return false;
 			}
 		}
-			
+		return false;
 	
 	}
 
