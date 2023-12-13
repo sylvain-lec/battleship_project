@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -171,7 +173,7 @@ public class BatailleNavale {
 				}
 				catch(NumberFormatException ex) {
                     // Texte n'est pas un int valide, ca degage
-                    System.err.println("Un nombre svp");
+                    JOptionPane.showMessageDialog(null, "Veuillez entrer un nombre valide.", "Erreur", JOptionPane.ERROR_MESSAGE);
 				}
                     
 				// Initialise type de joueurs en fonction du choix des boutons radios
