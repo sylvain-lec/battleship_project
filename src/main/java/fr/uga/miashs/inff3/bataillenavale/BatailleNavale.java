@@ -179,10 +179,11 @@ public class BatailleNavale {
 				// Initialise type de joueurs en fonction du choix des boutons radios
 				//Joueur 1
 				if(Joueur1Graphique.isSelected()) {
-					/*GrilleNavaleGraphique grilledef = new GrilleNavaleGraphique(tailleGrille);
-					GrilleGraphique grilletir = new GrilleGraphique(tailleGrille);*/
+					GrilleNavaleGraphique grilledef = new GrilleNavaleGraphique(tailleGrille);
+					GrilleGraphique grilletir = new GrilleGraphique(tailleGrille);
 					FenetreJoueur F1 = new FenetreJoueur(nomJoueur1.getText(), tailleGrille);
 					joueur1 = new JoueurGraphique (grilledef, grilletir, nomJoueur1.getText());
+					F1.setVisible(true);
 				}
 				else if(Joueur1Texte.isSelected()) {
 					int[] bateauxTexte = {2, 2, 3, 3, 4};
@@ -196,10 +197,11 @@ public class BatailleNavale {
 				}
 				// Joueur 2
 				if(Joueur2Graphique.isSelected()) {
-					/*GrilleNavaleGraphique grilledef2 = new GrilleNavaleGraphique(tailleGrille);
-					GrilleGraphique grilletir2 = new GrilleGraphique(tailleGrille); */
+					GrilleNavaleGraphique grilledef2 = new GrilleNavaleGraphique(tailleGrille);
+					GrilleGraphique grilletir2 = new GrilleGraphique(tailleGrille);
 					FenetreJoueur F2 = new FenetreJoueur(nomJoueur2.getText(), tailleGrille);
 					joueur2 = new JoueurGraphique (grilledef2, grilletir2, nomJoueur2.getText());
+					F2.setVisible(true);
 				}
 				else if(Joueur2Texte.isSelected()) {
 					int[] bateauxTexte2 = {2, 2, 3, 3, 4};
