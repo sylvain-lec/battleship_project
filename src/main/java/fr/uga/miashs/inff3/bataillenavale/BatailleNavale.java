@@ -200,13 +200,13 @@ public class BatailleNavale {
 				else if(Joueur2Texte.isSelected()) {
 					int[] bateauxTexte2 = {2, 2, 3, 3, 4};
 					GrilleNavale grilletext2 = new GrilleNavale(tailleGrille, bateauxTexte2.length);
-					joueur1 = new JoueurTexte(grilletext2, nomJoueur1.getText());
+					joueur2 = new JoueurTexte(grilletext2, nomJoueur2.getText());
 				}
 				
 				else {
 					int[] bateauxAuto2 = {2, 2, 3, 3, 4};
 					GrilleNavale grilleAuto2 = new GrilleNavale(tailleGrille, bateauxAuto2.length);
-					joueur1 = new JoueurAuto(grilleAuto2, nomJoueur1.getText());	
+					joueur2 = new JoueurAuto(grilleAuto2, nomJoueur2.getText());	
 				}
 				
 				// lance la partie en fonction des bouttons radios
