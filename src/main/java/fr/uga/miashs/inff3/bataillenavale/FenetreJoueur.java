@@ -50,6 +50,7 @@ public class FenetreJoueur extends JFrame {
 		grilleDefense = new GrilleNavaleGraphique(taille);
 		JoueurGraphique joueur = new JoueurGraphique(grilleDefense, grilleTirs, nom);
 		
+		
 		// A VALIDER !
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
