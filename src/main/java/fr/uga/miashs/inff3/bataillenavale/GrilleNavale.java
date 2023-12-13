@@ -258,6 +258,7 @@ public class GrilleNavale {
 		test2.setTirsRecus(tab2);
 		System.out.println(test2.toString());
 		
+
 	
 	}
 }
