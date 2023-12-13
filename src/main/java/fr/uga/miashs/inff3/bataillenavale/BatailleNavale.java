@@ -19,6 +19,8 @@ import java.awt.Color;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.ButtonGroup;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class BatailleNavale {
 	
@@ -35,10 +37,10 @@ public class BatailleNavale {
 
 	private JFrame frmBattailleNavale;
 	private JTextField field_taille;
-	private JTextField textField;
-	private final ButtonGroup buttonGroup = new ButtonGroup();
-	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
-	private JTextField txtJoueur;
+	private JTextField nomJoueur1;
+	private final ButtonGroup buttonGroup = new ButtonGroup(); // buttonGroup est pour le joueur 2 normal
+	private final ButtonGroup buttonGroup_1 = new ButtonGroup(); // buttonGroup_1 est pour le joueur 1 normal
+	private JTextField nomJoueur2;
 
 	/**
 	 * Launch the application.
@@ -101,27 +103,27 @@ public class BatailleNavale {
 		JLabel titreNom1 = new JLabel("Nom :");
 		panel_Joueur1.add(titreNom1, BorderLayout.WEST);
 		
-		textField = new JTextField();
-		panel_Joueur1.add(textField, BorderLayout.CENTER);
-		textField.setText("Joueur 1");
-		textField.setColumns(10);
+		nomJoueur1 = new JTextField();
+		panel_Joueur1.add(nomJoueur1, BorderLayout.CENTER);
+		nomJoueur1.setText("Joueur 1");
+		nomJoueur1.setColumns(10);
 		
 		JPanel panel_radio1 = new JPanel();
 		panel_central_1.add(panel_radio1);
 		panel_radio1.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JRadioButton RadioButtonGraphique = new JRadioButton("Joueur graphique");
-		buttonGroup_1.add(RadioButtonGraphique);
-		RadioButtonGraphique.setSelected(true);
-		panel_radio1.add(RadioButtonGraphique);
+		JRadioButton Joueur1Graphique = new JRadioButton("Joueur graphique");
+		buttonGroup_1.add(Joueur1Graphique);
+		Joueur1Graphique.setSelected(true);
+		panel_radio1.add(Joueur1Graphique);
 		
-		JRadioButton RadioButtonTexte = new JRadioButton("Joueur Texte");
-		buttonGroup_1.add(RadioButtonTexte);
-		panel_radio1.add(RadioButtonTexte);
+		JRadioButton Joueur1Texte = new JRadioButton("Joueur Texte");
+		buttonGroup_1.add(Joueur1Texte);
+		panel_radio1.add(Joueur1Texte);
 		
-		JRadioButton RadioButtonAuto = new JRadioButton("Joueur Auto");
-		buttonGroup_1.add(RadioButtonAuto);
-		panel_radio1.add(RadioButtonAuto);
+		JRadioButton Joueur1Auto = new JRadioButton("Joueur Auto");
+		buttonGroup_1.add(Joueur1Auto);
+		panel_radio1.add(Joueur1Auto);
 		
 		JPanel panel_central_2 = new JPanel();
 		panel_central_2.setBorder(new TitledBorder(null, "Joueur 2", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -139,30 +141,80 @@ public class BatailleNavale {
 		JLabel titreNom2 = new JLabel("Nom :");
 		panel_Joueur2.add(titreNom2, BorderLayout.WEST);
 		
-		txtJoueur = new JTextField();
-		txtJoueur.setText("Joueur 2");
-		panel_Joueur2.add(txtJoueur, BorderLayout.CENTER);
-		txtJoueur.setColumns(10);
+		nomJoueur2 = new JTextField();
+		nomJoueur2.setText("Joueur 2");
+		panel_Joueur2.add(nomJoueur2, BorderLayout.CENTER);
+		nomJoueur2.setColumns(10);
 		
-		JRadioButton ButtonGraphique_2 = new JRadioButton("Joueur graphique");
-		buttonGroup.add(ButtonGraphique_2);
-		ButtonGraphique_2.setSelected(true);
-		panel_radio2.add(ButtonGraphique_2);
+		JRadioButton Joueur2Graphique = new JRadioButton("Joueur graphique");
+		buttonGroup.add(Joueur2Graphique);
+		Joueur2Graphique.setSelected(true);
+		panel_radio2.add(Joueur2Graphique);
 		
-		JRadioButton rdbtnJoueurTexte = new JRadioButton("Joueur Texte");
-		buttonGroup.add(rdbtnJoueurTexte);
-		panel_radio2.add(rdbtnJoueurTexte);
+		JRadioButton Joueur2Texte = new JRadioButton("Joueur Texte");
+		buttonGroup.add(Joueur2Texte);
+		panel_radio2.add(Joueur2Texte);
 		
-		JRadioButton rdbtnJoueurAuto = new JRadioButton("Joueur Auto");
-		buttonGroup.add(rdbtnJoueurAuto);
-		panel_radio2.add(rdbtnJoueurAuto);
+		JRadioButton Joueur2Auto = new JRadioButton("Joueur Auto");
+		buttonGroup.add(Joueur2Auto);
+		panel_radio2.add(Joueur2Auto);
 		
 		JPanel panel_bas = new JPanel();
 		frmBattailleNavale.getContentPane().add(panel_bas, BorderLayout.SOUTH);
 		
 		JButton boutton_go = new JButton("Lancher la partie");
+		boutton_go.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// initialise la taille de la grille
+				try {
+					tailleGrille = Integer.parseInt(field_taille.getText());
+				}
+				catch(NumberFormatException ex) {
+                    // Texte n'est pas un int valide, ca degage
+                    System.err.println("Un nombre svp");
+                    
+				// Initialise type de joueurs en fonction du choix des boutons radios
+				//Joueur 1
+				if(Joueur1Graphique.isSelected()) {
+					GrilleNavaleGraphique grilledef = new GrilleNavaleGraphique(tailleGrille);
+					GrilleGraphique grilletir = new GrilleGraphique(tailleGrille);
+					joueur1 = new JoueurGraphique (grilledef, grilletir, nomJoueur1.getText());
+				}
+				else if(Joueur1Texte.isSelected()) {
+					int[] bateauxTexte = {2, 2, 3, 3, 4};
+					GrilleNavale grilletext = new GrilleNavale(tailleGrille, bateauxTexte.length);
+					joueur1 = new JoueurTexte(grilletext, nomJoueur1.getText());
+				}
+				else {
+					int[] bateauxAuto = {2, 2, 3, 3, 4};
+					GrilleNavale grilleAuto = new GrilleNavale(tailleGrille, bateauxAuto.length);
+					joueur1 = new JoueurAuto(grilleAuto, nomJoueur1.getText());					
+				}
+				// Joueur 2
+				if(Joueur2Graphique.isSelected()) {
+					GrilleNavaleGraphique grilledef2 = new GrilleNavaleGraphique(tailleGrille);
+					GrilleGraphique grilletir2 = new GrilleGraphique(tailleGrille);
+					joueur2 = new JoueurGraphique (grilledef2, grilletir2, nomJoueur2.getText());
+				}
+				else if(Joueur2Texte.isSelected()) {
+					int[] bateauxTexte2 = {2, 2, 3, 3, 4};
+					GrilleNavale grilletext2 = new GrilleNavale(tailleGrille, bateauxTexte2.length);
+					joueur1 = new JoueurTexte(grilletext2, nomJoueur1.getText());
+				}
+				
+				else {
+					int[] bateauxAuto2 = {2, 2, 3, 3, 4};
+					GrilleNavale grilleAuto2 = new GrilleNavale(tailleGrille, bateauxAuto2.length);
+					joueur1 = new JoueurAuto(grilleAuto2, nomJoueur1.getText());	
+				}
+				
+				// lance la partie en fonction des bouttons radios
+				demarrerPartie();
+				//---------------------------------------
+			}
+		};
 		panel_bas.add(boutton_go);
-		//---------------------------------------
+		
 	}
 
 }

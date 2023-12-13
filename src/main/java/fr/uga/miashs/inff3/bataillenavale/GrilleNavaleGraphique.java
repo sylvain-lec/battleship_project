@@ -7,7 +7,7 @@ public class GrilleNavaleGraphique extends GrilleNavale {
 	
 	public GrilleNavaleGraphique(int taille) {
 
-		super(taille,6);
+		super(taille,10);
 		grille = new GrilleGraphique(taille);
 
 	}
