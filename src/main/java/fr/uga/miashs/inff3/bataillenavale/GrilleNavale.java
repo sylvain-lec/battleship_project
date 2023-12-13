@@ -248,12 +248,16 @@ public class GrilleNavale {
 		int [] tab = {3, 2, 2, 3};
 		GrilleNavale test = new GrilleNavale(10, 2);
 		GrilleNavale test2 = new GrilleNavale(10, tab);
-		Coordonnee c = new Coordonnee("H7");
+		Coordonnee c = new Coordonnee("A7");
+		Coordonnee d = new Coordonnee("B2");
+		Coordonnee e = new Coordonnee("C5");
 		Navire nav = new Navire(c, 2, false);
 		//System.out.println(""+ c.getLigne()+ c.getColonne());
-		//System.out.println(test.ajouteNavire(nav));
-		System.out.println(ajouteDansTirsRecus(c));
-		System.out.println(test2);
+		Coordonnee [] tab2 = {c,d,e};
+		test2.ajouterDansTirsRecu 
+		test2.setTirsRecus(tab2);
+		System.out.println(test2.toString());
+		
 	
 	}
 }
