@@ -253,8 +253,8 @@ public class GrilleNavale {
 		Coordonnee e = new Coordonnee("C5");
 		Navire nav = new Navire(c, 2, false);
 		//System.out.println(""+ c.getLigne()+ c.getColonne());
-		Coordonnee [] tab2 = {c,d,e};
-		test2.ajouterDansTirsRecu 
+		Coordonnee [] tab2 = {c,d};
+		test2.ajouteDansTirsRecus(e);
 		test2.setTirsRecus(tab2);
 		System.out.println(test2.toString());
 		
