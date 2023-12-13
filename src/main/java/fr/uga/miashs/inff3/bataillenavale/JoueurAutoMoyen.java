@@ -8,7 +8,7 @@ public class JoueurAutoMoyen extends JoueurAuto {
 	
 	public JoueurAutoMoyen(GrilleNavale g, String nom) {
 		super(g, nom); 
-		historiqueTirs = new Coordonnee[getTailleGrille()*2]; //tableau de taille (taille*2). TailleGrille vient de Joueur
+		historiqueTirs = new Coordonnee[getTailleGrille()*getTailleGrille()]; //tableau de taille (taille*taille). TailleGrille vient de Joueur
 		nbTirs = 0;
 	}
 	
@@ -24,6 +24,7 @@ public class JoueurAutoMoyen extends JoueurAuto {
 				attaque = null; //condition de continuation du do-while
 				break;
 			}
+			
 		}
 	} while (attaque==null); //on sort quand attaque n'est plus null, donc quand on a pas déjà tiré ici ou à côté
 	//on met à jour le nb de tirs et le tableau qui stocke les tirs
@@ -35,5 +36,7 @@ public class JoueurAutoMoyen extends JoueurAuto {
 	public static void main(String[] args) {
 		JoueurAutoMoyen j = new JoueurAutoMoyen(new GrilleNavale(22,2), "sylvain");
 		System.out.println("génération aléatoire de coordonnées : "+j.choixAttaque()); 
+		System.out.println("génération aléatoire de coordonnées : "+j.choixAttaque()); 
+		System.out.println(j.nbTirs);
 	}
 }
