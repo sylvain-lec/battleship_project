@@ -11,6 +11,11 @@ public class GrilleNavale {
 
 	public GrilleNavale(int taille, int[] taillesNavires) {
 		// permet d'obtenir une grille navale de taille taille dans laquelle ont été placés automatiquement taillesNavires.length navires dont les tailles sont données dans taillesNavires.
+		if (taille<1 || taille>26)
+			throw new IllegalArgumentException("mauvaise taille"); //Vérifie la taille de la grille
+		for (int i = 0 ; i<taillesNavires.length ; i++) //vérifie si les navires sont au moins de taille 1
+			if (taillesNavires[i]<1)
+				throw new IllegalArgumentException("taille minimale navire : 1");
 		this.navires = new Navire[taillesNavires.length];
 		this.nbNavires = 0;
 		this.taille = taille;
@@ -21,6 +26,10 @@ public class GrilleNavale {
 	
 	public GrilleNavale(int taille, int nbNavires) {
 		// permet d'obtenir une grille navale vide de taille taille pouvant accueillir jusqu'à nbNavires.
+		if (taille<1 || taille>26) //vérifie la taille de la grille
+			throw new IllegalArgumentException("mauvaise taille");
+		if (nbNavires < 1)
+			throw new IllegalArgumentException("nombre minimum navires : 1");
 		this.navires = new Navire[nbNavires];
 		this.nbNavires = 0;
 		this.taille = taille;
@@ -237,14 +246,17 @@ public class GrilleNavale {
 	
 	public static void main(String[] args) {
 		int [] tab = {3, 2, 2, 3};
-		GrilleNavale test = new GrilleNavale(10, 2);
+		//GrilleNavale test = new GrilleNavale(10, 2);
 		GrilleNavale test2 = new GrilleNavale(10, tab);
-		Coordonnee c = new Coordonnee("H7");
-		Navire nav = new Navire(c, 2, false);
+		Coordonnee c = new Coordonnee("A7");
+		Coordonnee d = new Coordonnee("B2");
+		Coordonnee [] tab2 = {c,d};
+		test2.setTirsRecus(tab2); 
+		test2.setNbTirsRecus(tirsRecus.length());
+		Coordonnee e = new Coordonnee("C5");
+		test2.ajouteDansTirsRecus(e);
 		//System.out.println(""+ c.getLigne()+ c.getColonne());
-		//System.out.println(test.ajouteNavire(nav));
-		//System.out.println(ajouteDansTirsRecus(c));
-		System.out.println(test2);
-	
+		System.out.println(test2.toString());
+
 	}
 }

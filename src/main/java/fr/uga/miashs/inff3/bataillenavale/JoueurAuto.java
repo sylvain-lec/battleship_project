@@ -12,35 +12,33 @@ public class JoueurAuto extends JoueurAvecGrille {
 	}
 
 	protected void retourAttaque(Coordonnee c, int etat) {
-		// jsp ce qu'il faut faire ici j'ai fait un peu au hasard
+		// pas sûr que le joueur auto ait besoin d'un retour
 	
-		if (etat==4)
-			System.out.println("tir en " + c +" : gameover");
-		if (etat==1)
-			System.out.println("tir en " + c+" : navire touché");
-		if (etat==2)
-			System.out.println("tir en " + c+" : navire coulé");
-		if (etat==3)
-			System.out.println("tir en " + c+" : à l'eau");
+		if (etat==GAMEOVER)
+			System.out.println("Gagné !");
+		if (etat==TOUCHE)
+			System.out.println("tir en " + c+" : vous avez touché un navire");
+		if (etat==COULE)
+			System.out.println("tir en " + c+" : vous avez coulé un navire");
+		if (etat==A_L_EAU)
+			System.out.println("tir en " + c+" : vous avez tiré dans l'eau");
 	}
 	
 	protected void retourDefense(Coordonnee c, int etat) {
-		//affichage à la console des étapes de jeu
-		this.retourAttaque(c, etat);
+		// pas sûr que le joueur auto ait besoin d'un retour
+		if (etat==GAMEOVER)
+			System.out.println("Vous avez perdu :(");
+		if (etat==TOUCHE)
+			System.out.println("tir en " + c+" : un navire a été touché");
+		if (etat==COULE)
+			System.out.println("tir en " + c+" : un navire a coulé");
+		if (etat==A_L_EAU)
+			System.out.println("tir en " + c+" : tout va bien yayyy");
 	}
 	
 	public Coordonnee choixAttaque() {
 		// genere coordonnee aleatoire
-		
-		//version simple :
-		//Coordonnee attaque = new Coordonnee(new Random().nextInt(super.getTailleGrille() - 1), new Random().nextInt(super.getTailleGrille() - 1));
-		//return attaque;
-		
-		Coordonnee attaque;
-		do {
-			attaque = new Coordonnee(new Random().nextInt(super.getTailleGrille() - 1), new Random().nextInt(super.getTailleGrille() - 1));
-		} while (super.grille.estDansTirsRecus(attaque) || attaque.voisine(???)); //methode de superclasse estDansTirsRecus private
-		
+		Coordonnee attaque = new Coordonnee(new Random().nextInt(super.getTailleGrille() - 1), new Random().nextInt(super.getTailleGrille() - 1));
 		return attaque;
-	
+		}
 }

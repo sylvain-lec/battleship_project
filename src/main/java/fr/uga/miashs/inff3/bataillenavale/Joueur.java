@@ -39,6 +39,7 @@ public abstract class Joueur {
 	public void jouerAvec(Joueur j) {
 		//Démarre une partie contre j. Avant de lancer le déroulement du jeu, il faut veiller à établir le lien entre les 2 joueurs et bien entendu vérifier qu’il puisse être établi.
 		this.adversaire = j;
+		j.adversaire = this;
 		deroulementJeu(this, j);
 	}
 	
