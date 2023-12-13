@@ -92,7 +92,7 @@ public class GrilleNavale {
 
 		//Positionnement des tirs TODO
 		
-		for (int i = 0; i < tirsRecus.length; i++) {
+		/*for (int i = 0; i < tirsRecus.length; i++) {
 			int coordonneeLigne = tirsRecus[i].getLigne() + 1 ; // Retrouver la ligne du tirsRecus
 			int indiceColonne = tirsRecus[i].getColonne()*2 +3; // Retrouver la colonne du tirsRecus
 			int PositionTirsRecus = (largeurGrille*coordonneeLigne) + indiceColonne;
@@ -106,7 +106,7 @@ public class GrilleNavale {
 //				for (int k = 1; k <= navires[i].tailleNavire(); k ++)
 					grille.setCharAt(PositionTirsRecus, 'X');
 			}	
-		}
+		}*/
 				
 		return grille.toString();	
 	}
@@ -243,7 +243,7 @@ public class GrilleNavale {
 		Navire nav = new Navire(c, 2, false);
 		//System.out.println(""+ c.getLigne()+ c.getColonne());
 		//System.out.println(test.ajouteNavire(nav));
-		System.out.println(ajouteDansTirsRecus(c));
+		//System.out.println(ajouteDansTirsRecus(c));
 		System.out.println(test2);
 	
 	}

@@ -34,7 +34,7 @@ public class JoueurTexte extends JoueurAvecGrille {
 	public Coordonnee choixAttaque() {
 		Scanner sc = new Scanner(System.in);
 		// recueille au clavier la saisie de la coordonnée à attaquer
-		System.out.print("Coordonnées de l'attaque: ");
+		System.out.println("Coordonnées de l'attaque: ");
 		// enregistrement de l'input dans une nouvelle coordonnee
 		Coordonnee attaque = new Coordonnee(sc.nextLine());
 		return attaque; //CA RETOURNE RIEN
