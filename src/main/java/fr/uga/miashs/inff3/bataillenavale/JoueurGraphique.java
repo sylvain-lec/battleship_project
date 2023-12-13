@@ -6,11 +6,13 @@ public class JoueurGraphique extends JoueurAvecGrille {
 	
 	// CONSTRUCTEURS
 	public JoueurGraphique(GrilleNavaleGraphique grilleDefense, GrilleGraphique grilleTirs, String nom) {
-		
+		super(grilleDefense, nom);
+		this.grilleTirs = grilleTirs;
 	}
 	
 	public JoueurGraphique(GrilleNavaleGraphique grilleDefense, GrilleGraphique grilleTirs) {
-		
+		super(grilleDefense);
+		this.grilleTirs = grilleTirs;
 	}
 	
 	// METHODES
