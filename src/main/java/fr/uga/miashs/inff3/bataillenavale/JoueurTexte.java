@@ -45,6 +45,7 @@ public class JoueurTexte extends JoueurAvecGrille {
 		// enregistrement de l'input dans une nouvelle coordonnee
 		Coordonnee attaque = new Coordonnee(sc.next());
 		//exception si coordonnee hors des limites de la grille
+		//METTRE UN TRY CATCH A LA PLACE
 		if (attaque.getColonne() >= this.getTailleGrille() || attaque.getLigne() >= this.getTailleGrille()) 
 				throw new IllegalArgumentException("taille hors limites");
 		return attaque; 
