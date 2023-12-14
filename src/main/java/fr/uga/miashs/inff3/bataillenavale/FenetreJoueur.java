@@ -58,7 +58,7 @@ public class FenetreJoueur extends JFrame {
 		contentPane.setLayout(new GridLayout(1,2));
 		contentPane.add(grilleTirs);
 		contentPane.add(grilleDefense.getGrilleGraphique());
-		
+		grilleDefense.getGrilleGraphique().setClicActive(false); // Clic impossible sur grille de défense.
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);

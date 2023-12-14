@@ -29,9 +29,11 @@ public class GrilleNavaleGraphique extends GrilleNavale {
 		for (int i = 0; i<super.getNbNavires();i++) {
 			if(super.recoitTir(c) && super.estTouche(c)) {
 				grille.colorie(c,Color.RED);
+				grille.setClicActive(false);
 				return true;
 			}else if (super.recoitTir(c) && super.estALEau(c)) {
 				grille.colorie(c,Color.RED);	
+				grille.setClicActive(false);
 				return false;
 			}
 		}
