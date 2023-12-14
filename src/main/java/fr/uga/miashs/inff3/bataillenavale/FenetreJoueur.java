@@ -11,7 +11,7 @@ public class FenetreJoueur extends JFrame {
 
 	private JPanel contentPane;
 	private GrilleGraphique grilleTirs;
-	private GrilleNavaleGraphique grilleDefense;
+	private GrilleGraphique grilleDefense;
 
 	/**
 	 * Launch the application.
@@ -33,22 +33,15 @@ public class FenetreJoueur extends JFrame {
 	 * Create the frame.
 	 */
 	
-	public FenetreJoueur() {
+	/*public FenetreJoueur() {
 		this("Nom du joueur", 10);
-		}
+		}*/
 	
-	public FenetreJoueur(String nom, int taille) {
+	public FenetreJoueur(String nom, GrilleGraphique tir, GrilleGraphique defense) {
 		// permet d'obtenir une fenêtre pour un joueur de nom nom avec des grilles de taille taille. Un placement de navires automatique sur grilleDefense peut être réalisé.
-		if (taille < 5) {
-			taille = 5;
-			}
-		grilleTirs = new GrilleGraphique(taille);
-		grilleDefense = new GrilleNavaleGraphique(taille);
+		grilleTirs = tir;
+		grilleDefense = defense;
 		setTitle(nom);
-		
-		// placement auto des bateaux en fonction de la taille
-		int[] liste = grilleDefense.ListeNavires();
-		grilleDefense.placementAuto(liste);
 		
 		// initialise contentPane
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,8 +50,8 @@ public class FenetreJoueur extends JFrame {
 		// crée un nouveau panel puis ajoute les deux grilles (1er = a gauche celle de tirs et 2nd= à droite celle de défense)
 		contentPane.setLayout(new GridLayout(1,2));
 		contentPane.add(grilleTirs);
-		contentPane.add(grilleDefense.getGrilleGraphique());
-		grilleDefense.getGrilleGraphique().setClicActive(false); // Clic impossible sur grille de défense.
+		contentPane.add(grilleDefense);
+		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
