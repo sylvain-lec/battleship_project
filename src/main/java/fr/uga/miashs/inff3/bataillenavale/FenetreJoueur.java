@@ -1,6 +1,7 @@
 package fr.uga.miashs.inff3.bataillenavale;
 
 import java.awt.EventQueue;
+import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -53,6 +54,11 @@ public class FenetreJoueur extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		// crée un nouveau panel puis ajoute les deux grilles (1er = a gauche celle de tirs et 2nd= à droite celle de défense)
+		contentPane.setLayout(new GridLayout(1,2));
+		contentPane.add(grilleTirs);
+		contentPane.add(grilleDefense.getGrilleGraphique());
+		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);

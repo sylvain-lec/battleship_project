@@ -16,7 +16,7 @@ public class GrilleNavale {
 		for (int i = 0 ; i<taillesNavires.length ; i++) //vérifie si les navires sont au moins de taille 1
 			if (taillesNavires[i]<1)
 				throw new IllegalArgumentException("taille minimale navire : 1");
-		this.navires = new Navire[taillesNavires.length];
+		this.navires = new Navire[taillesNavires.length]; //LONGUEUR EXPECTED - 1
 		this.nbNavires = 0;
 		this.taille = taille;
 		tirsRecus = new Coordonnee[10];
@@ -31,7 +31,7 @@ public class GrilleNavale {
 			throw new IllegalArgumentException("choisir une taille entre 5 et 26");
 		if (nbNavires < 1)
 			throw new IllegalArgumentException("nombre minimum navires : 1");
-		this.navires = new Navire[nbNavires];
+		this.navires = new Navire[nbNavires];//Dans la sous-classe GNGraphique, nb=5. PB si ListeNavire.length=6
 		this.nbNavires = 0;
 		this.taille = taille;
 		tirsRecus = new Coordonnee[10];
@@ -175,6 +175,14 @@ public class GrilleNavale {
 		for (int i = 0; i < nbNavires; i++) {
 				if (this.navires[i].touche(n) || this.navires[i].chevauche(n) || n.getFin().getLigne() >= taille || n.getFin().getColonne() >= taille)
 					return false;
+		}
+		// agrandit le tableau navires si besoin 
+		if (navires.length == nbNavires) {
+			Navire[] tmp = new Navire[navires.length+5];
+			for (int i=0 ; i<nbNavires ; i++) {
+				tmp[i] = navires[i];
+			}
+			navires = tmp;
 		}
 		this.navires[nbNavires] = n;
 		nbNavires ++;
