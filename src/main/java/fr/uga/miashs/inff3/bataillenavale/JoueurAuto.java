@@ -16,11 +16,11 @@ public class JoueurAuto extends JoueurAvecGrille {
 	
 		if (etat==GAMEOVER)
 			System.out.println("Gagné !");
-		if (etat==TOUCHE)
-			System.out.println("tir en " + c+" : vous avez touché un navire");
-		if (etat==COULE)
+		else if (etat==COULE)
 			System.out.println("tir en " + c+" : vous avez coulé un navire");
-		if (etat==A_L_EAU)
+		else if (etat==TOUCHE)
+			System.out.println("tir en " + c+" : vous avez touché un navire");
+		else // etat==A_L_EAU
 			System.out.println("tir en " + c+" : vous avez tiré dans l'eau");
 	}
 	
@@ -28,11 +28,11 @@ public class JoueurAuto extends JoueurAvecGrille {
 		// pas sûr que le joueur auto ait besoin d'un retour
 		if (etat==GAMEOVER)
 			System.out.println("Vous avez perdu :(");
-		if (etat==TOUCHE)
-			System.out.println("tir en " + c+" : un navire a été touché");
-		if (etat==COULE)
+		else if (etat==COULE)
 			System.out.println("tir en " + c+" : un navire a coulé");
-		if (etat==A_L_EAU)
+		else if (etat==TOUCHE)
+			System.out.println("tir en " + c+" : un navire a été touché");
+		else // etat==A_L_EAU
 			System.out.println("tir en " + c+" : tout va bien yayyy");
 	}
 	

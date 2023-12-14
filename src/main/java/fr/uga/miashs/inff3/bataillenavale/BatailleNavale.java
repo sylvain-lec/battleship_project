@@ -192,14 +192,24 @@ public class BatailleNavale {
 					System.out.println(grilledef);
 				}
 				else if(Joueur1Texte.isSelected()) {
-					int[] bateauxTexte = {2, 2, 3, 3, 4};
-					GrilleNavale grilletext = new GrilleNavale(tailleGrille, bateauxTexte); // NE PAS APPELER LE CONSTRUCTEUR AVEC iNT NBNAVIRES
-					joueur1 = new JoueurTexte(grilletext, nomJoueur1.getText());
+					GrilleNavale grilledef = new GrilleNavale(tailleGrille, 1);
+					// placement auto des bateaux en fonction de la taille
+					int[] liste = grilledef.ListeNavires();
+					grilledef.placementAuto(liste);
+					grilledef = new GrilleNavale(tailleGrille, liste); // NE PAS APPELER LE CONSTRUCTEUR AVEC iNT NBNAVIRES
+					joueur1 = new JoueurTexte(grilledef, nomJoueur1.getText());
+					System.out.println(grilledef);
 				}
 				else {
-					int[] bateauxAuto = {2, 2, 3, 3, 4};
-					GrilleNavale grilleAuto = new GrilleNavale(tailleGrille, bateauxAuto);
-					joueur1 = new JoueurAuto(grilleAuto, nomJoueur1.getText());					
+					//int[] bateauxAuto = {2, 2, 3, 3, 4};
+					//GrilleNavale grilleAuto = new GrilleNavale(tailleGrille, bateauxAuto);
+					
+					GrilleNavale grilledef = new GrilleNavale(tailleGrille, 1);
+					// placement auto des bateaux en fonction de la taille
+					int[] liste = grilledef.ListeNavires();
+					grilledef.placementAuto(liste);
+					grilledef = new GrilleNavale(tailleGrille, liste);
+					joueur1 = new JoueurAuto(grilledef, nomJoueur1.getText());	
 				}
 				// Joueur 2
 				if(Joueur2Graphique.isSelected()) {
@@ -216,15 +226,31 @@ public class BatailleNavale {
 					System.out.println(grilledef2);
 				}
 				else if(Joueur2Texte.isSelected()) {
-					int[] bateauxTexte2 = {2, 2, 3, 3, 4};
+					/*int[] bateauxTexte2 = {2, 2, 3, 3, 4};
 					GrilleNavale grilletext2 = new GrilleNavale(tailleGrille, bateauxTexte2);
-					joueur2 = new JoueurTexte(grilletext2, nomJoueur2.getText());
+					joueur2 = new JoueurTexte(grilletext2, nomJoueur2.getText());*/
+					GrilleNavale grilledef = new GrilleNavale(tailleGrille, 1);
+					// placement auto des bateaux en fonction de la taille
+					int[] liste = grilledef.ListeNavires();
+					grilledef.placementAuto(liste);
+					GrilleNavale grilletext = new GrilleNavale(tailleGrille, liste); // NE PAS APPELER LE CONSTRUCTEUR AVEC iNT NBNAVIRES
+					joueur2 = new JoueurTexte(grilletext, nomJoueur2.getText());
+					System.out.println(grilledef);
+
 				}
 				
 				else {
-					int[] bateauxAuto2 = {2, 2, 3, 3, 4};
-					GrilleNavale grilleAuto2 = new GrilleNavale(tailleGrille, bateauxAuto2);
-					joueur2 = new JoueurAuto(grilleAuto2, nomJoueur2.getText());	
+					//int[] bateauxAuto2 = {2, 2, 3, 3, 4};
+					//GrilleNavale grilleAuto2 = new GrilleNavale(tailleGrille, bateauxAuto2);
+					
+					GrilleNavale grilledef = new GrilleNavale(tailleGrille, 1);
+					// placement auto des bateaux en fonction de la taille
+					int[] liste = grilledef.ListeNavires();
+					grilledef.placementAuto(liste);
+					grilledef = new GrilleNavale(tailleGrille, liste);
+					System.out.println(grilledef);
+					joueur2 = new JoueurAuto(grilledef, nomJoueur2.getText());	
+					
 				}
 				
 				// lance la partie en fonction des bouttons radios
