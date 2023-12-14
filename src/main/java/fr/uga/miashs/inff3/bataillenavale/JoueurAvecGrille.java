@@ -21,10 +21,10 @@ public abstract class JoueurAvecGrille extends Joueur {
 		
 		if (grille.perdu())
 			return GAMEOVER;
-		else if (grille.estTouche(c))
-			return TOUCHE;
 		else if (grille.estCoule(c))
 			return COULE;
+		else if (grille.estTouche(c))
+			return TOUCHE;
 		// sinon c'est dans l'eau
 		return A_L_EAU;
 	}

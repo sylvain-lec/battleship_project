@@ -28,7 +28,7 @@ public class GrilleNavaleGraphique extends GrilleNavale {
 	
 	public boolean recoitTir(Coordonnee c) {
 		//Spécialisation de la méthode héritée de GrilleNavale. La case correspondant au tir doit être coloriée en Color.RED si le tir a touché un navire ou en Color.BLUE s'il est à l'eau.
-		for (int i = 0; i<super.getNbNavires();i++) {
+	/*	for (int i = 0; i<super.getNbNavires();i++) {
 			if(super.recoitTir(c) && super.estTouche(c)) {
 				grille.colorie(c,Color.RED);
 				grille.setClicActive(false);
@@ -40,7 +40,16 @@ public class GrilleNavaleGraphique extends GrilleNavale {
 			}
 		}
 		return false;
-	
+		*/
+		//grille.setClicActive(false);
+		if(super.recoitTir(c)) {
+			grille.colorie(c, Color.RED);
+			return true;
+		}
+		else if (super.estALEau(c)) {
+			grille.colorie(c, Color.BLUE);
+			return false;
+		}
+		return false;
 	}
-
 }

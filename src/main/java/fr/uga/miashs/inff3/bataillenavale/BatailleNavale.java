@@ -175,7 +175,7 @@ public class BatailleNavale {
                     // Texte n'est pas un int valide, ca degage
                     JOptionPane.showMessageDialog(null, "Veuillez entrer un nombre valide.", "Erreur", JOptionPane.ERROR_MESSAGE);
 				}
-                    
+                
 				// Initialise type de joueurs en fonction du choix des boutons radios
 				//Joueur 1
 				if(Joueur1Graphique.isSelected()) {

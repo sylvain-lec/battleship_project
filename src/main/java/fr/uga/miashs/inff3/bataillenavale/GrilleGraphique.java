@@ -31,7 +31,7 @@ public class GrilleGraphique extends JPanel implements ActionListener {
 	/**
 	 * La matrice des boutons (cases de la grille)
 	 */
-	private JButton[][] cases;
+	private JButtonCoordonnee[][] cases;
 
 	/** 
 	 * La coordonnee actuellement selectionnée.
@@ -64,7 +64,7 @@ public class GrilleGraphique extends JPanel implements ActionListener {
 			lbl.setHorizontalAlignment(JLabel.CENTER);
 			this.add(lbl);
 		}
-		cases = new JButton[taille][taille];
+		cases = new JButtonCoordonnee[taille][taille];
 		for (int i = 0; i < taille; i++) {
 			JLabel lbl = new JLabel(String.valueOf(i + 1));
 			lbl.setHorizontalAlignment(JLabel.CENTER);
@@ -122,6 +122,19 @@ public class GrilleGraphique extends JPanel implements ActionListener {
 			for (JButton[] ligne : cases) {
 				for (JButton bt : ligne) {
 					bt.setEnabled(active);
+				}
+			}
+			this.setEnabled(true);
+		});
+	}
+	
+	public void setClicActive(boolean active, Coordonnee c) {
+		SwingUtilities.invokeLater(() -> {
+			this.setEnabled(false);
+			for (JButtonCoordonnee[] ligne : cases) {
+				for (JButtonCoordonnee bt : ligne) {
+					if (bt.getCoordonnee().equals(c))
+						bt.setEnabled(active);
 				}
 			}
 			this.setEnabled(true);
