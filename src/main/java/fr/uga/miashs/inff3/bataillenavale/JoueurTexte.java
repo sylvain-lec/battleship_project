@@ -19,11 +19,11 @@ public class JoueurTexte extends JoueurAvecGrille {
 		if (etat==GAMEOVER)
 			System.out.println("Gagné !");
 		if (etat==TOUCHE)
-			System.out.println(super.getNom()+", vous avez touché un navire");
+			System.out.println(super.getNom()+", vous avez touché un navire en "+ c);
 		if (etat==COULE)
-			System.out.println(super.getNom()+", vous avez coulé un navire");
+			System.out.println(super.getNom()+", vous avez coulé un navire en "+ c);
 		if (etat==A_L_EAU)
-			System.out.println(super.getNom()+", vous avez tiré dans l'eau");
+			System.out.println(super.getNom()+", vous avez tiré dans l'eau en" + c);
 	}
 	
 	protected void retourDefense(Coordonnee c, int etat) {
@@ -31,11 +31,11 @@ public class JoueurTexte extends JoueurAvecGrille {
 		if (etat==GAMEOVER)
 			System.out.println("Vous avez perdu :(");
 		if (etat==TOUCHE)
-			System.out.println(super.getNom()+", un navire a été touché");
+			System.out.println(super.getNom()+", un navire a été touché en" + c);
 		if (etat==COULE)
-			System.out.println(super.getNom()+", un navire a coulé");
+			System.out.println(super.getNom()+"tir en : "+c+", un navire a coulé");
 		if (etat==A_L_EAU)
-			System.out.println(super.getNom()+", tout va bien yayyy");
+			System.out.println(super.getNom()+", tout va bien yayyy" + c);
 	}
 	
 	public Coordonnee choixAttaque() {
