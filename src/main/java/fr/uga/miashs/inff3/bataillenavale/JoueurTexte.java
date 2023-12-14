@@ -19,23 +19,11 @@ public class JoueurTexte extends JoueurAvecGrille {
 		if (etat==GAMEOVER)
 			System.out.println("Gagné !");
 		if (etat==TOUCHE)
-<<<<<<< HEAD
-			System.out.println(super.getNom()+", vous avez touché un navire, bien ouej");
-=======
 			System.out.println(super.getNom()+", vous avez touché un navire en "+ c);
->>>>>>> branch 'main' of https://github.com/sylvainlecire/bataillenavaledciss2023.git
 		if (etat==COULE)
-<<<<<<< HEAD
-			System.out.println(super.getNom()+", vous avez coulé un navire, #pearl harbor");
-=======
 			System.out.println(super.getNom()+", tir en "+c+" : un navire a coulé");
->>>>>>> branch 'main' of https://github.com/sylvainlecire/bataillenavaledciss2023.git
 		if (etat==A_L_EAU)
-<<<<<<< HEAD
-			System.out.println(super.getNom()+", vous avez tiré dans l'eau, plouf");
-=======
 			System.out.println(super.getNom()+", vous avez tiré dans l'eau en " + c);
->>>>>>> branch 'main' of https://github.com/sylvainlecire/bataillenavaledciss2023.git
 	}
 	
 	protected void retourDefense(Coordonnee c, int etat) {
@@ -43,17 +31,9 @@ public class JoueurTexte extends JoueurAvecGrille {
 		if (etat==GAMEOVER)
 			System.out.println("Vous avez perdu :(");
 		if (etat==TOUCHE)
-<<<<<<< HEAD
-			System.out.println(super.getNom()+", un navire a été touché, kaboom");
-=======
 			System.out.println(super.getNom()+", un navire a été touché en " + c);
->>>>>>> branch 'main' of https://github.com/sylvainlecire/bataillenavaledciss2023.git
 		if (etat==COULE)
-<<<<<<< HEAD
-			System.out.println(super.getNom()+", un navire a coulé, bloop bloop");
-=======
 			System.out.println(super.getNom()+", tir en "+c+" : un navire a coulé");
->>>>>>> branch 'main' of https://github.com/sylvainlecire/bataillenavaledciss2023.git
 		if (etat==A_L_EAU)
 			System.out.println(super.getNom()+", tir en "+c+" :  tout va bien yayyy");
 	}
