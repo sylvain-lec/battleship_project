@@ -1,6 +1,7 @@
 package fr.uga.miashs.inff3.bataillenavale;
 
 import java.awt.EventQueue;
+import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -46,31 +47,20 @@ public class FenetreJoueur extends JFrame {
 		setTitle(nom);
 		
 		// placement auto des bateaux en fonction de la taille
-		if (taille > 5 && taille < 10) {
-			int[] bateaux = {2, 2, 3};
-			grilleDefense.placementAuto(bateaux);
-		}
-		else if (taille < 10) {
-			int[] bateaux = {2, 2, 3, 3, 4};
-			grilleDefense.placementAuto(bateaux);
-		}
-		else if (taille < 15) {
-			int[] bateaux = {2, 2, 3, 3, 4, 4};
-			grilleDefense.placementAuto(bateaux);
-		}
-		else if (taille < 20) {
-			int[] bateaux = {2, 2, 3, 3, 4, 4, 5};
-			grilleDefense.placementAuto(bateaux);
-		}
-		else {
-			int[] bateaux = {2, 2, 3, 3, 4, 4, 5, 5, 6};
-			grilleDefense.placementAuto(bateaux);
-		}
+		int[] liste = grilleDefense.ListeNavires();
+		grilleDefense.placementAuto(liste);
+		int[] liste2 = grilleDefense.ListeNavires();
+		grilleDefense.placementAuto(liste2);
 		
 		// initialise contentPane
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
+		// crée un nouveau panel puis ajoute les deux grilles (1er = a gauche celle de tirs et 2nd= à droite celle de défense)
+		contentPane.setLayout(new GridLayout(1,2));
+		contentPane.add(grilleTirs);
+		contentPane.add(grilleDefense.getGrilleGraphique());
+		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);

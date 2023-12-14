@@ -6,10 +6,10 @@ public class GrilleNavaleGraphique extends GrilleNavale {
 	private GrilleGraphique grille;
 	
 	public GrilleNavaleGraphique(int taille) {
-
-		super(taille,5);
+		super(taille, 5);
+		//int[] liste = super.ListeNavires();
+		//super.setNbNavires(liste.length);
 		grille = new GrilleGraphique(taille);
-
 	}
 	
 	public GrilleGraphique getGrilleGraphique() {
