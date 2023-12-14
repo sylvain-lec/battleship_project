@@ -136,6 +136,14 @@ public class Navire {
         boolean colonneCommune = (finColonneThis >= c.getColonne() && debutColonneThis <= c.getColonne());
         if (ligneCommune && colonneCommune) {
         	nbTouchees += 1;
+    		// agrandit le tableau navires si besoin 
+    		if (partiesTouchees.length == nbTouchees) {
+    			Coordonnee[] tmp = new Coordonnee[partiesTouchees.length+5];
+    			for (int i=0 ; i<nbTouchees ; i++) {
+    				tmp[i] = partiesTouchees[i];
+    			}
+    			partiesTouchees = tmp;
+    		}
             // intègre les coordonnées du tir c dans le tableau après éventuels tirs précédents
             partiesTouchees[nbTouchees - 1] = c;
             return true;

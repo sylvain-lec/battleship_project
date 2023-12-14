@@ -26,9 +26,6 @@ public class JoueurGraphique extends JoueurAvecGrille {
 	public Coordonnee choixAttaque() {
 		//Consiste à récupérer la coordonnée choisie depuis grilleTirs.
 		Coordonnee attaque = grilleTirs.getCoordonneeSelectionnee();
-		//exception si coordonnee hors des limites de la grille
-		if (attaque.getColonne() >= this.getTailleGrille() || attaque.getLigne() >= this.getTailleGrille()) 
-				throw new IllegalArgumentException("taille hors limites");
 		return attaque; 
 	}
 	

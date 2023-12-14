@@ -193,12 +193,12 @@ public class BatailleNavale {
 				}
 				else if(Joueur1Texte.isSelected()) {
 					int[] bateauxTexte = {2, 2, 3, 3, 4};
-					GrilleNavale grilletext = new GrilleNavale(tailleGrille, bateauxTexte);//NE PAS APPELER LE CONSTRUCTEUR AVEC iNT NBNAVIRES
+					GrilleNavale grilletext = new GrilleNavale(tailleGrille, bateauxTexte); // NE PAS APPELER LE CONSTRUCTEUR AVEC iNT NBNAVIRES
 					joueur1 = new JoueurTexte(grilletext, nomJoueur1.getText());
 				}
 				else {
 					int[] bateauxAuto = {2, 2, 3, 3, 4};
-					GrilleNavale grilleAuto = new GrilleNavale(tailleGrille, bateauxAuto.length);
+					GrilleNavale grilleAuto = new GrilleNavale(tailleGrille, bateauxAuto);
 					joueur1 = new JoueurAuto(grilleAuto, nomJoueur1.getText());					
 				}
 				// Joueur 2
@@ -223,7 +223,7 @@ public class BatailleNavale {
 				
 				else {
 					int[] bateauxAuto2 = {2, 2, 3, 3, 4};
-					GrilleNavale grilleAuto2 = new GrilleNavale(tailleGrille, bateauxAuto2.length);
+					GrilleNavale grilleAuto2 = new GrilleNavale(tailleGrille, bateauxAuto2);
 					joueur2 = new JoueurAuto(grilleAuto2, nomJoueur2.getText());	
 				}
 				
