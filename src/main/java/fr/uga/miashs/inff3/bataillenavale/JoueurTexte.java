@@ -40,22 +40,19 @@ public class JoueurTexte extends JoueurAvecGrille {
 	
 	public Coordonnee choixAttaque() {
 		Scanner sc = new Scanner(System.in);
+		Coordonnee attaque = null;
 		// recueille au clavier la saisie de la coordonnée à attaquer
-		System.out.println(super.getNom()+", choisissez les coordonnées de l'attaque : ");
-		Coordonnee attaque;
-		//exception si coordonnee hors des limites de la grille
-		try { 
-			// recueille au clavier la saisie de la coordonnée à attaquer
-			do {
-				// enregistrement de l'input dans une nouvelle coordonnee puis retourner la valeur
-				attaque = new Coordonnee(sc.next());
+		do {
+			try { //exception si coordonnee hors des limites de la grille
+				System.out.println(super.getNom()+", choisissez les coordonnées de l'attaque : ");
+				attaque = new Coordonnee(sc.next()); // enregistrement de l'input dans une nouvelle coordonnee puis retourner la valeur
+				
+			} catch(Exception e) { // REVOIR CATCH
+			System.out.println("taille hors limites");
 			}
-			// répéter si coordonnee hors des limites de la grille
-			while (attaque.getColonne() >= this.getTailleGrille() || attaque.getLigne() >= this.getTailleGrille());
+			
+		} while (attaque == null || attaque.getColonne() >= this.getTailleGrille() || attaque.getLigne() >= this.getTailleGrille()); // répéter si coordonnee hors des limites de la grille
 		
-		} catch(IllegalArgumentException e) {
-				System.out.println("taille hors limites");
-		}
 		return attaque;
 	}
 
