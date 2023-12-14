@@ -155,11 +155,8 @@ public class GrilleNavale {
 		if (taille > 5 && taille < 10) {
 			res = new int[] {2, 2, 3};
 		}
-		else if (taille < 10) {
-			res = new int[] {2, 2, 3, 3, 4};
-		}
 		else if (taille < 15) {
-			res = new int[] {2, 2, 3, 3, 4, 4};
+			res = new int[] {2, 2, 3, 3, 4};
 		}
 		else if (taille < 20) {
 			res = new int[] {2, 2, 3, 3, 4, 4, 5};
@@ -192,7 +189,7 @@ public class GrilleNavale {
 	public void placementAuto(int[] taillesNavires) {
 		// Place automatiquement et aléatoirement taillesNavires.length navires dont les tailles sont données dans taillesNavire.
 		for (int i = 0; i < taillesNavires.length; )
-			if (this.ajouteNavire(new Navire(new Coordonnee(new Random().nextInt(taille - taillesNavires[i] + 1), new Random().nextInt(taille - taillesNavires[i] + 1)), taillesNavires[i], new Random().nextBoolean())))
+			if (this.ajouteNavire(new Navire(new Coordonnee(new Random().nextInt(taille - taillesNavires[i]), new Random().nextInt(taille - taillesNavires[i])), taillesNavires[i], new Random().nextBoolean())))
 				i++;
 	}
 	

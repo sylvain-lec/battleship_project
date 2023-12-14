@@ -19,9 +19,11 @@ public class GrilleNavaleGraphique extends GrilleNavale {
 	
 	public boolean ajouteNavire(Navire n) {
 		//Spécialisation de la méthode héritée de GrilleNavale. Les cases correspondant au navire ajouté doivent être coloriées en Color.GREEN. 
-		if(super.ajouteNavire(n))
-				grille.colorie(n.getDebut(),n.getFin(),Color.GREEN);
-		return true;
+		if(super.ajouteNavire(n)) {
+			grille.colorie(n.getDebut(),n.getFin(),Color.GREEN);
+			return true;
+		}
+		return false;
 	}
 	
 	public boolean recoitTir(Coordonnee c) {
