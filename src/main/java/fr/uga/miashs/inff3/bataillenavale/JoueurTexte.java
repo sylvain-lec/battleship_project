@@ -17,7 +17,7 @@ public class JoueurTexte extends JoueurAvecGrille {
 		// Réalise l'affichage à la console des étapes de jeu.
 		// c est la coordonnée à laquelle le tir a eu lieu et etat le résultat de l'attaque. etat ne peut être que TOUCHE, COULE, A_L_EAU, ou GAMEOVER.
 		if (etat==GAMEOVER)
-			System.out.println("Gagné !");
+			System.out.println(super.getNom()+", vous avez gagné !");
 		else if (etat==COULE)
 			System.out.println(super.getNom()+", tir en "+c+" : un navire a coulé");
 		else if (etat==TOUCHE)
@@ -29,7 +29,7 @@ public class JoueurTexte extends JoueurAvecGrille {
 	protected void retourDefense(Coordonnee c, int etat) {
 		//c est la coordonnée à laquelle le tir a eu lieu et etat le résultat de ce tir. etat ne peut être que TOUCHE, COULE, A_L_EAU, ou GAMEOVER. 
 		if (etat==GAMEOVER)
-			System.out.println("Vous avez perdu :(");
+			System.out.println(super.getNom()+", vous avez perdu :(");
 		else if (etat==COULE)
 			System.out.println(super.getNom()+", tir en "+c+" : un navire a coulé");
 		else if (etat==TOUCHE)
@@ -50,12 +50,11 @@ public class JoueurTexte extends JoueurAvecGrille {
 			} catch(Exception e) { // REVOIR CATCH
 			System.out.println("taille hors limites");
 			}
-			
+						
 		} while (attaque == null || attaque.getColonne() >= this.getTailleGrille() || attaque.getLigne() >= this.getTailleGrille()); // répéter si coordonnee hors des limites de la grille
-		
 		return attaque;
 	}
-
+	
 	public static void main(String[] args) {
 		Coordonnee c = new Coordonnee("B3");
 		GrilleNavale g = new GrilleNavale(10,2);

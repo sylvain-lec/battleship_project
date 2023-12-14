@@ -134,7 +134,7 @@ public class Navire {
         
         boolean ligneCommune = (finLigneThis >= c.getLigne() && debutLigneThis <= c.getLigne()); 
         boolean colonneCommune = (finColonneThis >= c.getColonne() && debutColonneThis <= c.getColonne());
-        if (ligneCommune && colonneCommune) {
+        if (ligneCommune && colonneCommune && !(this.estTouche(c))) {
         	nbTouchees += 1;
     		// agrandit le tableau navires si besoin 
     		if (partiesTouchees.length == nbTouchees) {
