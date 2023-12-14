@@ -22,6 +22,7 @@ public class GrilleNavale {
 		tirsRecus = new Coordonnee[10];
 		nbTirsRecus = 0;
 		this.placementAuto(taillesNavires);
+		
 	}
 	
 	public GrilleNavale(int taille, int nbNavires) {
@@ -236,7 +237,7 @@ public class GrilleNavale {
 	public boolean estCoule(Coordonnee c) {
 		// Retourne true si et seulement si un des navires présents dans this a été touché en c et est coulé.
 		for (int i = 0; i < nbNavires; i++) {
-			if (navires[i].estTouche(c) && navires[i].estCoule())
+			if (navires[i].estCoule())//navires[i].estTouche(c) && 
 				return true;
 		}
 		return false;

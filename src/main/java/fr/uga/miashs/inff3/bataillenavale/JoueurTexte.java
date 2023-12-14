@@ -19,11 +19,11 @@ public class JoueurTexte extends JoueurAvecGrille {
 		if (etat==GAMEOVER)
 			System.out.println("Gagné !");
 		if (etat==TOUCHE)
-			System.out.println("tir en " + c+" : vous avez touché un navire");
+			System.out.println(super.getNom()+", vous avez touché un navire");
 		if (etat==COULE)
-			System.out.println("tir en " + c+" : vous avez coulé un navire");
+			System.out.println(super.getNom()+", vous avez coulé un navire");
 		if (etat==A_L_EAU)
-			System.out.println("tir en " + c+" : vous avez tiré dans l'eau");
+			System.out.println(super.getNom()+", vous avez tiré dans l'eau");
 	}
 	
 	protected void retourDefense(Coordonnee c, int etat) {
@@ -31,17 +31,17 @@ public class JoueurTexte extends JoueurAvecGrille {
 		if (etat==GAMEOVER)
 			System.out.println("Vous avez perdu :(");
 		if (etat==TOUCHE)
-			System.out.println("tir en " + c+" : un navire a été touché");
+			System.out.println(super.getNom()+", un navire a été touché");
 		if (etat==COULE)
-			System.out.println("tir en " + c+" : un navire a coulé");
+			System.out.println(super.getNom()+", un navire a coulé");
 		if (etat==A_L_EAU)
-			System.out.println("tir en " + c+" : tout va bien yayyy");
+			System.out.println(super.getNom()+", tout va bien yayyy");
 	}
 	
 	public Coordonnee choixAttaque() {
 		Scanner sc = new Scanner(System.in);
 		// recueille au clavier la saisie de la coordonnée à attaquer
-		System.out.println("Coordonnées de l'attaque: ");
+		System.out.println(super.getNom()+", choisissez les coordonnées de l'attaque : ");
 		// enregistrement de l'input dans une nouvelle coordonnee
 		Coordonnee attaque = new Coordonnee(sc.next());
 		//exception si coordonnee hors des limites de la grille
