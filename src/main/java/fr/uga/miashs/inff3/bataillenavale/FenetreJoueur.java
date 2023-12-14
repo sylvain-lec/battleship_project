@@ -49,6 +49,8 @@ public class FenetreJoueur extends JFrame {
 		// placement auto des bateaux en fonction de la taille
 		int[] liste = grilleDefense.ListeNavires();
 		grilleDefense.placementAuto(liste);
+		int[] liste2 = grilleDefense.ListeNavires();
+		grilleDefense.placementAuto(liste2);
 		
 		// initialise contentPane
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
