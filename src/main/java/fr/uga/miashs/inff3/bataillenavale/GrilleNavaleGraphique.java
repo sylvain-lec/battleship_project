@@ -32,7 +32,7 @@ public class GrilleNavaleGraphique extends GrilleNavale {
 				grille.setClicActive(false);
 				return true;
 			}else if (super.recoitTir(c) && super.estALEau(c)) {
-				grille.colorie(c,Color.RED);	
+				grille.colorie(c,Color.BLUE);	
 				grille.setClicActive(false);
 				return false;
 			}
