@@ -81,12 +81,12 @@ public class GrilleNavale {
 		}
 		
 		// Positionnement des navires
-		// char de passage à la ligne + décalage
+		// (décalage pour les noms de lignes + char de passage à la ligne) + (espaces autour des points donc *2)
 		int largeurGrille = 4 + (taille* 2);
 		
 		for (int i = 0; i < nbNavires ; i++) {
-			int coordonneeLigne = navires[i].getDebut().getLigne() + 1; // Retrouver la ligne du navire i
-			int indiceColonne = navires[i].getDebut().getColonne()*2 + 3; // Retrouver la colonne du navire i
+			int coordonneeLigne = navires[i].getDebut().getLigne() + 1; // Retrouver la ligne du navire i (+1 retour à la ligne)
+			int indiceColonne = navires[i].getDebut().getColonne()*2 + 3; // Retrouver la colonne du navire i (pas de char de passage à la ligne)
 			int Debut = (largeurGrille*coordonneeLigne) + indiceColonne; // point de départ du navire
 
 			if (navires[i].getFin().getLigne() == navires[i].getDebut().getLigne()) 
@@ -128,9 +128,9 @@ public class GrilleNavale {
 	public int getNbNavires() {
 		return nbNavires;
 	}
-	public void setNbNavires(int nbNavires) {
+	/*public void setNbNavires(int nbNavires) {
 		this.nbNavires = nbNavires;
-	}
+	}*/
 	public Coordonnee[] getTirsRecus() {
 		return tirsRecus;
 	}
@@ -150,6 +150,25 @@ public class GrilleNavale {
 		this.taille = taille;
 	}
 	
+	public int[] ListeNavires() {
+		int[] res = null;
+		if (taille > 5 && taille < 10) {
+			res = new int[] {2, 2, 3};
+		}
+		else if (taille < 10) {
+			res = new int[] {2, 2, 3, 3, 4};
+		}
+		else if (taille < 15) {
+			res = new int[] {2, 2, 3, 3, 4, 4};
+		}
+		else if (taille < 20) {
+			res = new int[] {2, 2, 3, 3, 4, 4, 5};
+		}
+		else {
+			res = new int[] {2, 2, 3, 3, 4, 4, 5, 5, 6};
+		}
+		return res;
+	}
 	
 	public boolean ajouteNavire(Navire n) {
 		//Retourne true après avoir ajouté n à this si cet ajout est possible. L'ajout est impossible si n touche ou chevauche un navire déjà présent dans this, ou encore si n dépasse les limites de this.
