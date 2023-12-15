@@ -167,127 +167,132 @@ public class BatailleNavale {
 		JButton boutton_go = new JButton("Lancher la partie");
 		boutton_go.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// initialise la taille de la grille
+				// initialise la taille de la grille et catch les erreurs
 				try {
 					tailleGrille = Integer.parseInt(field_taille.getText());
-				}
-				catch(NumberFormatException ex) {
+				
+                
+					// Initialise type de joueurs en fonction du choix des boutons radios				
+					
+					//GRAPHIQUE JOUEUR 1 - Version Ca Marche
+					if(Joueur1Graphique.isSelected()) {
+						GrilleNavaleGraphique grilledef = new GrilleNavaleGraphique(tailleGrille);
+						GrilleGraphique grilletir = new GrilleGraphique(tailleGrille);
+	
+						// placement auto des bateaux en fonction de la taille
+						int[] liste = grilledef.ListeNavires();
+						grilledef.placementAuto(liste);
+						
+						FenetreJoueur F1 = new FenetreJoueur(nomJoueur1.getText(), grilletir, grilledef.getGrilleGraphique());
+						joueur1 = new JoueurGraphique (grilledef, grilletir, nomJoueur1.getText());
+						F1.setVisible(true);
+						System.out.println(grilledef);
+					}
+					
+					//TEXTE JOUEUR 1
+					else if(Joueur1Texte.isSelected()) {
+						//V1
+						/* int[] bateauxTexte = {2, 2, 3, 3, 4};
+						GrilleNavale grilletext = new GrilleNavale(tailleGrille, bateauxTexte);
+						joueur1 = new JoueurTexte(grilletext, nomJoueur1.getText());
+						System.out.println(nomJoueur1.getText());
+						System.out.println(grilletext);*/
+						
+						//TEST PLACEMENT AUTO
+						GrilleNavale grilledef = new GrilleNavale(tailleGrille, 1);
+						// placement auto des bateaux en fonction de la taille
+						int[] liste = grilledef.ListeNavires();
+						grilledef.placementAuto(liste);
+						//grilledef = new GrilleNavale(tailleGrille, liste); // NE PAS APPELER LE CONSTRUCTEUR AVEC iNT NBNAVIRES
+						joueur1 = new JoueurTexte(grilledef, nomJoueur1.getText());
+						System.out.println(grilledef);	
+					}
+					
+					//AUTO JOUEUR 1
+					else {
+						//V1
+						int[] bateauxAuto = {2, 2, 3, 3, 4};
+						GrilleNavale grilleAuto = new GrilleNavale(tailleGrille, bateauxAuto);
+						joueur1 = new JoueurAuto(grilleAuto, nomJoueur1.getText());
+						System.out.println(nomJoueur1.getText());
+						System.out.println(grilleAuto);
+						
+						/* TEST PLACEMENT AUTO
+						GrilleNavale grilledef = new GrilleNavale(tailleGrille, 1);
+						// placement auto des bateaux en fonction de la taille
+						int[] liste = grilledef.ListeNavires();
+						grilledef.placementAuto(liste);
+						grilledef = new GrilleNavale(tailleGrille, liste);
+						joueur1 = new JoueurAuto(grilledef, nomJoueur1.getText());	*/
+					}
+					
+					
+					//GRAPHIQUE JOUEUR 2 - Version Ca Marche
+					if(Joueur2Graphique.isSelected()) {
+						GrilleNavaleGraphique grilledef2 = new GrilleNavaleGraphique(tailleGrille);
+						GrilleGraphique grilletir2 = new GrilleGraphique(tailleGrille);
+						
+						// placement auto des bateaux en fonction de la taille
+						int[] liste = grilledef2.ListeNavires();
+						grilledef2.placementAuto(liste);
+						
+						FenetreJoueur F2 = new FenetreJoueur(nomJoueur2.getText(), grilletir2, grilledef2.getGrilleGraphique());
+						joueur2 = new JoueurGraphique (grilledef2, grilletir2, nomJoueur2.getText());
+						F2.setVisible(true);
+						System.out.println(grilledef2);
+					}
+					
+					//TEXTE  JOUEUR 2
+					else if(Joueur2Texte.isSelected()) {
+						/*V1
+						int[] bateauxTexte = {2, 2, 3, 3, 4};
+						GrilleNavale grilletext = new GrilleNavale(tailleGrille, bateauxTexte);
+						joueur2 = new JoueurTexte(grilletext, nomJoueur2.getText());
+						System.out.println(nomJoueur2.getText());
+						System.out.println(grilletext);*/
+						
+						// TEST PLACEMENT AUTO
+						GrilleNavale grilledef = new GrilleNavale(tailleGrille, 1);
+						// placement auto des bateaux en fonction de la taille
+						int[] liste = grilledef.ListeNavires();
+						grilledef.placementAuto(liste);
+						//GrilleNavale grilletext = new GrilleNavale(tailleGrille, liste); // NE PAS APPELER LE CONSTRUCTEUR AVEC iNT NBNAVIRES
+						joueur2 = new JoueurTexte(grilledef, nomJoueur2.getText());
+						System.out.println(grilledef);
+					}
+					
+					//AUTO JOUEUR 2
+					else {
+						//V1
+						int[] bateauxAuto = {2, 2, 3, 3, 4};
+						GrilleNavale grilleAuto = new GrilleNavale(tailleGrille, bateauxAuto);
+						joueur2 = new JoueurAuto(grilleAuto, nomJoueur2.getText());
+						System.out.println(nomJoueur2.getText());
+						System.out.println(grilleAuto);
+						
+						/* TEST PLACEMENT AUTO
+						GrilleNavale grilledef = new GrilleNavale(tailleGrille, 1);
+						// placement auto des bateaux en fonction de la taille
+						int[] liste = grilledef.ListeNavires();
+						grilledef.placementAuto(liste);
+						grilledef = new GrilleNavale(tailleGrille, liste);
+						System.out.println(grilledef);
+						joueur2 = new JoueurAuto(grilledef, nomJoueur2.getText());*/
+						
+					}
+					
+					// lance la partie en fonction des bouttons radios
+					demarrerPartie();
+					//---------------------------------------
+					}
+				catch(NumberFormatException pasUnNombre) {
                     // Texte n'est pas un int valide, ca degage
                     JOptionPane.showMessageDialog(null, "Veuillez entrer un nombre valide.", "Erreur", JOptionPane.ERROR_MESSAGE);
 				}
-                
-				// Initialise type de joueurs en fonction du choix des boutons radios				
-				
-				//GRAPHIQUE JOUEUR 1 - Version Ca Marche
-				if(Joueur1Graphique.isSelected()) {
-					GrilleNavaleGraphique grilledef = new GrilleNavaleGraphique(tailleGrille);
-					GrilleGraphique grilletir = new GrilleGraphique(tailleGrille);
-
-					// placement auto des bateaux en fonction de la taille
-					int[] liste = grilledef.ListeNavires();
-					grilledef.placementAuto(liste);
-					
-					FenetreJoueur F1 = new FenetreJoueur(nomJoueur1.getText(), grilletir, grilledef.getGrilleGraphique());
-					joueur1 = new JoueurGraphique (grilledef, grilletir, nomJoueur1.getText());
-					F1.setVisible(true);
-					System.out.println(grilledef);
+				catch(IllegalArgumentException moinsDe5) {
+					// <5, interdit
+                    JOptionPane.showMessageDialog(null, "Valeur minimum 5", "Erreur", JOptionPane.ERROR_MESSAGE);
 				}
-				
-				//TEXTE JOUEUR 1
-				else if(Joueur1Texte.isSelected()) {
-					//V1
-					/* int[] bateauxTexte = {2, 2, 3, 3, 4};
-					GrilleNavale grilletext = new GrilleNavale(tailleGrille, bateauxTexte);
-					joueur1 = new JoueurTexte(grilletext, nomJoueur1.getText());
-					System.out.println(nomJoueur1.getText());
-					System.out.println(grilletext);*/
-					
-					//TEST PLACEMENT AUTO
-					GrilleNavale grilledef = new GrilleNavale(tailleGrille, 1);
-					// placement auto des bateaux en fonction de la taille
-					int[] liste = grilledef.ListeNavires();
-					grilledef.placementAuto(liste);
-					//grilledef = new GrilleNavale(tailleGrille, liste); // NE PAS APPELER LE CONSTRUCTEUR AVEC iNT NBNAVIRES
-					joueur1 = new JoueurTexte(grilledef, nomJoueur1.getText());
-					System.out.println(grilledef);	
-				}
-				
-				//AUTO JOUEUR 1
-				else {
-					//V1
-					int[] bateauxAuto = {2, 2, 3, 3, 4};
-					GrilleNavale grilleAuto = new GrilleNavale(tailleGrille, bateauxAuto);
-					joueur1 = new JoueurAuto(grilleAuto, nomJoueur1.getText());
-					System.out.println(nomJoueur1.getText());
-					System.out.println(grilleAuto);
-					
-					/* TEST PLACEMENT AUTO
-					GrilleNavale grilledef = new GrilleNavale(tailleGrille, 1);
-					// placement auto des bateaux en fonction de la taille
-					int[] liste = grilledef.ListeNavires();
-					grilledef.placementAuto(liste);
-					grilledef = new GrilleNavale(tailleGrille, liste);
-					joueur1 = new JoueurAuto(grilledef, nomJoueur1.getText());	*/
-				}
-				
-				
-				//GRAPHIQUE JOUEUR 2 - Version Ca Marche
-				if(Joueur2Graphique.isSelected()) {
-					GrilleNavaleGraphique grilledef2 = new GrilleNavaleGraphique(tailleGrille);
-					GrilleGraphique grilletir2 = new GrilleGraphique(tailleGrille);
-					
-					// placement auto des bateaux en fonction de la taille
-					int[] liste = grilledef2.ListeNavires();
-					grilledef2.placementAuto(liste);
-					
-					FenetreJoueur F2 = new FenetreJoueur(nomJoueur2.getText(), grilletir2, grilledef2.getGrilleGraphique());
-					joueur2 = new JoueurGraphique (grilledef2, grilletir2, nomJoueur2.getText());
-					F2.setVisible(true);
-					System.out.println(grilledef2);
-				}
-				
-				//TEXTE  JOUEUR 2
-				else if(Joueur2Texte.isSelected()) {
-					/*V1
-					int[] bateauxTexte = {2, 2, 3, 3, 4};
-					GrilleNavale grilletext = new GrilleNavale(tailleGrille, bateauxTexte);
-					joueur2 = new JoueurTexte(grilletext, nomJoueur2.getText());
-					System.out.println(nomJoueur2.getText());
-					System.out.println(grilletext);*/
-					
-					// TEST PLACEMENT AUTO
-					GrilleNavale grilledef = new GrilleNavale(tailleGrille, 1);
-					// placement auto des bateaux en fonction de la taille
-					int[] liste = grilledef.ListeNavires();
-					grilledef.placementAuto(liste);
-					//GrilleNavale grilletext = new GrilleNavale(tailleGrille, liste); // NE PAS APPELER LE CONSTRUCTEUR AVEC iNT NBNAVIRES
-					joueur2 = new JoueurTexte(grilledef, nomJoueur2.getText());
-					System.out.println(grilledef);
-				}
-				
-				//AUTO JOUEUR 2
-				else {
-					//V1
-					int[] bateauxAuto = {2, 2, 3, 3, 4};
-					GrilleNavale grilleAuto = new GrilleNavale(tailleGrille, bateauxAuto);
-					joueur2 = new JoueurAuto(grilleAuto, nomJoueur2.getText());
-					System.out.println(nomJoueur2.getText());
-					System.out.println(grilleAuto);
-					
-					/* TEST PLACEMENT AUTO
-					GrilleNavale grilledef = new GrilleNavale(tailleGrille, 1);
-					// placement auto des bateaux en fonction de la taille
-					int[] liste = grilledef.ListeNavires();
-					grilledef.placementAuto(liste);
-					grilledef = new GrilleNavale(tailleGrille, liste);
-					System.out.println(grilledef);
-					joueur2 = new JoueurAuto(grilledef, nomJoueur2.getText());*/
-					
-				}
-				
-				// lance la partie en fonction des bouttons radios
-				demarrerPartie();
-				//---------------------------------------
 			}
 		});
 		panel_bas.add(boutton_go);
