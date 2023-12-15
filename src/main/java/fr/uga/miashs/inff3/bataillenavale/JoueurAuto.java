@@ -13,27 +13,26 @@ public class JoueurAuto extends JoueurAvecGrille {
 
 	protected void retourAttaque(Coordonnee c, int etat) {
 		// pas sûr que le joueur auto ait besoin d'un retour
-	
 		if (etat==GAMEOVER)
-			System.out.println("Gagné !");
+			System.out.println(this.getNom() + " a gagné !");
 		else if (etat==COULE)
-			System.out.println("tir en " + c+" : vous avez coulé un navire");
+			System.out.println(this.getNom() + " : tir en " + c+" : navire coulé");
 		else if (etat==TOUCHE)
-			System.out.println("tir en " + c+" : vous avez touché un navire");
+			System.out.println(this.getNom() + " : tir en " + c+" : navire touché");
 		else // etat==A_L_EAU
-			System.out.println("tir en " + c+" : vous avez tiré dans l'eau");
+			System.out.println(this.getNom() + " : tir en " + c+" : dans l'eau");
 	}
 	
 	protected void retourDefense(Coordonnee c, int etat) {
 		// pas sûr que le joueur auto ait besoin d'un retour
 		if (etat==GAMEOVER)
-			System.out.println("Vous avez perdu :(");
+			System.out.println(this.getNom() + " a perdu :(");
 		else if (etat==COULE)
-			System.out.println("tir en " + c+" : un navire a coulé");
+			System.out.println("tir en " + c+" : un navire de " + this.getNom() + " a coulé");
 		else if (etat==TOUCHE)
-			System.out.println("tir en " + c+" : un navire a été touché");
+			System.out.println("tir en " + c+" : un navire de " + this.getNom() + " a été touché");
 		else // etat==A_L_EAU
-			System.out.println("tir en " + c+" : tout va bien yayyy");
+			System.out.println("tir en " + c+" : aucun bateau de " + this.getNom() + " n'a été touché");
 	}
 	
 	public Coordonnee choixAttaque() {

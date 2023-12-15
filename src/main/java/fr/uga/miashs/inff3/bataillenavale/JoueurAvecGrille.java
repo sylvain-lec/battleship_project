@@ -16,9 +16,7 @@ public abstract class JoueurAvecGrille extends Joueur {
 	public int defendre(Coordonnee c) {
 		// c est la coordonnée à laquelle l’attaquant a choisi d’effectuer un tir. 
 		// Elle retourne le résultat du tir qui ne peut être que TOUCHE, COULE, A_L_EAU, ou GAMEOVER.
-		
-		grille.recoitTir(c); //méthode de GrilleNavale qui ajt c aux tirs reçus
-		
+		grille.recoitTir(c); //méthode de GrilleNavale qui ajoute c aux tirs reçus
 		if (grille.perdu())
 			return GAMEOVER;
 		else if (grille.estCoule(c))

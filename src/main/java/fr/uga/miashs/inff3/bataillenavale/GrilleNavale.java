@@ -31,7 +31,7 @@ public class GrilleNavale {
 			throw new IllegalArgumentException("choisir une taille entre 5 et 26");
 		if (nbNavires < 1)
 			throw new IllegalArgumentException("nombre minimum navires : 1");
-		this.navires = new Navire[nbNavires];//Dans la sous-classe GNGraphique, nb=5. PB si ListeNavire.length=6
+		this.navires = new Navire[nbNavires];
 		this.nbNavires = 0;
 		this.taille = taille;
 		tirsRecus = new Coordonnee[10];

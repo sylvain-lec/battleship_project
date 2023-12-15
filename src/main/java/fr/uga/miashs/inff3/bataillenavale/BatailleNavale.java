@@ -220,7 +220,7 @@ public class BatailleNavale {
 						// placement auto des bateaux en fonction de la taille
 						int[] liste = grilledef.ListeNavires();
 						grilledef.placementAuto(liste);
-						joueur1 = new JoueurAuto(grilledef, nomJoueur1.getText());
+						joueur1 = new JoueurAutoMoyen(grilledef, nomJoueur1.getText());
 						System.out.println(nomJoueur1.getText() + "\n" + grilledef);						
 					}
 					
@@ -272,10 +272,8 @@ public class BatailleNavale {
 						// placement auto des bateaux en fonction de la taille
 						int[] liste = grilledef.ListeNavires();
 						grilledef.placementAuto(liste);
-						joueur2 = new JoueurAuto(grilledef, nomJoueur2.getText());
-						System.out.println(nomJoueur2.getText() + "\n" + grilledef);						
-
-						
+						joueur2 = new JoueurAutoMoyen(grilledef, nomJoueur2.getText());
+						System.out.println(nomJoueur2.getText() + "\n" + grilledef);												
 					}
 					
 					// lance la partie en fonction des bouttons radios
