@@ -35,7 +35,7 @@ public class JoueurTexte extends JoueurAvecGrille {
 		else if (etat==TOUCHE)
 			System.out.println(super.getNom()+", votre navire a été touché en " + c  + "\n");
 		else //etat==A_L_EAU
-			System.out.println(super.getNom()+", tir en "+c+" :  tout va bien yayyy"  + "\n");
+			System.out.println(super.getNom()+", tir en "+c+" :  tout va bien hakuna matata"  + "\n");
 	}
 	
 	public Coordonnee choixAttaque() {
@@ -46,10 +46,16 @@ public class JoueurTexte extends JoueurAvecGrille {
 			try { //exception si coordonnee hors des limites de la grille
 				System.out.println(super.getNom()+", choisissez les coordonnées de l'attaque : ");
 				attaque = new Coordonnee(sc.next()); // enregistrement de l'input dans une nouvelle coordonnee puis retourner la valeur
-				
-			} catch(Exception e) { // REVOIR CATCH
-			System.out.println("taille hors limites");
+				if(attaque.getColonne() >= this.getTailleGrille() || attaque.getLigne() >= this.getTailleGrille())
+					throw new IllegalArgumentException();
 			}
+			catch(IllegalArgumentException ex) { //  
+				System.out.println("Veuillez entrer des coordonnées de type LettreNombre, en respectant les dimensions de la grille" + "\n");
+				}
+			catch(Exception e) { // REVOIR CATCH
+			System.out.println("coordonnées incorrectes");
+			}
+			
 						
 		} while (attaque == null || attaque.getColonne() >= this.getTailleGrille() || attaque.getLigne() >= this.getTailleGrille()); // répéter si coordonnee hors des limites de la grille
 		return attaque;

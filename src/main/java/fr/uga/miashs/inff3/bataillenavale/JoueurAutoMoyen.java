@@ -18,7 +18,7 @@ public class JoueurAutoMoyen extends JoueurAuto {
 
 		Coordonnee attaque;
 	do {
-		attaque = new Coordonnee(new Random().nextInt(super.getTailleGrille() - 1), new Random().nextInt(super.getTailleGrille() - 1));
+		attaque = new Coordonnee(new Random().nextInt(super.getTailleGrille()), new Random().nextInt(super.getTailleGrille())); //jai enlevé les -1
 		for (int i=0 ; i<nbTirs ; i++) {
 			if (historiqueTirs[i].equals(attaque)) //|| attaque.voisine(historiqueTirs[i])) {//on a déjà tiré ici
 				attaque = null; //condition de continuation du do-while

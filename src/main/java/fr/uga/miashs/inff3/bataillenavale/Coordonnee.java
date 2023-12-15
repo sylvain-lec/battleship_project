@@ -25,7 +25,7 @@ public class Coordonnee implements Comparable<Coordonnee> {
 		else 
 			this.ligne = Integer.parseInt(s.substring(1))-1;
 		} catch (NumberFormatException e) { 
-			throw new IllegalArgumentException("coordonnées non valides");
+			throw new NumberFormatException("coordonnées non valides");
 		}
 	}
 

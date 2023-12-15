@@ -107,7 +107,7 @@ public class BatailleNavale {
 		
 		nomJoueur1 = new JTextField();
 		panel_Joueur1.add(nomJoueur1, BorderLayout.CENTER);
-		nomJoueur1.setText("Joueur 1");
+		nomJoueur1.setText("M. David");
 		nomJoueur1.setColumns(10);
 		
 		JPanel panel_radio1 = new JPanel();
@@ -144,7 +144,7 @@ public class BatailleNavale {
 		panel_Joueur2.add(titreNom2, BorderLayout.WEST);
 		
 		nomJoueur2 = new JTextField();
-		nomJoueur2.setText("Joueur 2");
+		nomJoueur2.setText("M. Bardou");
 		panel_Joueur2.add(nomJoueur2, BorderLayout.CENTER);
 		nomJoueur2.setColumns(10);
 		
@@ -164,7 +164,7 @@ public class BatailleNavale {
 		JPanel panel_bas = new JPanel();
 		frmBattailleNavale.getContentPane().add(panel_bas, BorderLayout.SOUTH);
 		
-		JButton boutton_go = new JButton("Lancher la partie");
+		JButton boutton_go = new JButton("Let's fight!");
 		boutton_go.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// initialise la taille de la grille et catch les erreurs
