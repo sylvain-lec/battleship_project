@@ -153,7 +153,7 @@ public class GrilleNavale {
 	public int[] ListeNavires() {
 		int[] res = null;
 		if (taille >= 5 && taille < 10) {
-			res = new int[] {2, 3};
+			res = new int[] {2, 2, 3};
 		}
 		else if (taille >= 10 && taille < 15) {
 			res = new int[] {2, 2, 3, 3, 4};
@@ -169,10 +169,14 @@ public class GrilleNavale {
 	
 	public boolean ajouteNavire(Navire n) {
 		//Retourne true après avoir ajouté n à this si cet ajout est possible. L'ajout est impossible si n touche ou chevauche un navire déjà présent dans this, ou encore si n dépasse les limites de this.
-		for (int i = 0; i < nbNavires; i++) {
-				if (this.navires[i].touche(n) || this.navires[i].chevauche(n) || n.getFin().getLigne() >= taille || n.getFin().getColonne() >= taille)
+		for (int i = 0; i < nbNavires; i++) { // vérifie que le navire n'est pas sur ou a coté d'un autre
+				if (this.navires[i].touche(n) || this.navires[i].chevauche(n))
 					return false;
 		}
+		// vérifie que le bateau ne déborde pas de la grille
+		if (n.getFin().getLigne() >= taille || n.getFin().getColonne() >= taille)
+			return false;
+		
 		// agrandit le tableau navires si besoin 
 		if (navires.length == nbNavires) {
 			Navire[] tmp = new Navire[navires.length+5];
@@ -189,7 +193,7 @@ public class GrilleNavale {
 	public void placementAuto(int[] taillesNavires) {
 		// Place automatiquement et aléatoirement taillesNavires.length navires dont les tailles sont données dans taillesNavire.
 		for (int i = 0; i < taillesNavires.length; )
-			if (this.ajouteNavire(new Navire(new Coordonnee(new Random().nextInt(taille - taillesNavires[i]), new Random().nextInt(taille - taillesNavires[i])), taillesNavires[i], new Random().nextBoolean())))
+			if (this.ajouteNavire(new Navire(new Coordonnee(new Random().nextInt(taille), new Random().nextInt(taille)), taillesNavires[i], new Random().nextBoolean())))
 				i++;
 	}
 	
