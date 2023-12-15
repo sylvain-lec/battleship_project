@@ -230,6 +230,7 @@ public class GrilleNavale {
 	public boolean recoitTir(Coordonnee c) {
 		// Ajoute c aux tirs reçus de this si nécessaire. Retourne true si et seulement si c ne correspondait pas déjà à un tir reçu et a permis de toucher un navire de this.
 		if (!(this.estDansTirsRecus(c))) {
+			ajouteDansTirsRecus(c);
 			for (int i = 0; i < nbNavires; i++)
 				// pas ce recoitTir, mais celui de navires !
 				if (navires[i].recoitTir(c))

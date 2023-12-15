@@ -20,13 +20,12 @@ public class JoueurAutoMoyen extends JoueurAuto {
 	do {
 		attaque = new Coordonnee(new Random().nextInt(super.getTailleGrille() - 1), new Random().nextInt(super.getTailleGrille() - 1));
 		for (int i=0 ; i<nbTirs ; i++) {
-			if (historiqueTirs[i].equals(attaque)) //|| attaque.voisine(historiqueTirs[i])) {//on a déjà tiré ici ou à côté
+			if (historiqueTirs[i].equals(attaque)) //|| attaque.voisine(historiqueTirs[i])) {//on a déjà tiré ici
 				attaque = null; //condition de continuation du do-while
-				break;
 			}
 			
 		//}
-	} while (attaque==null); //on sort quand attaque n'est plus null, donc quand on a pas déjà tiré ici ou à côté
+	} while (attaque==null); //on sort quand attaque n'est plus null, donc quand on a pas déjà tiré ici
 	//on met à jour le nb de tirs et le tableau qui stocke les tirs
 	nbTirs++;
 	historiqueTirs[nbTirs-1] = attaque;
