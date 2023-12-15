@@ -152,13 +152,13 @@ public class GrilleNavale {
 	
 	public int[] ListeNavires() {
 		int[] res = null;
-		if (taille > 5 && taille < 10) {
-			res = new int[] {2, 2, 3};
+		if (taille >= 5 && taille < 10) {
+			res = new int[] {2, 3};
 		}
-		else if (taille < 15) {
+		else if (taille >= 10 && taille < 15) {
 			res = new int[] {2, 2, 3, 3, 4};
 		}
-		else if (taille < 20) {
+		else if (taille >= 15 && taille < 20) {
 			res = new int[] {2, 2, 3, 3, 4, 4, 5};
 		}
 		else {
