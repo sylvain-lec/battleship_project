@@ -31,11 +31,11 @@ public class JoueurTexte extends JoueurAvecGrille {
 		if (etat==GAMEOVER)
 			System.out.println(super.getNom()+", vous avez perdu :(");
 		else if (etat==COULE)
-			System.out.println(super.getNom()+", tir en "+c+" : un navire a coulé");
+			System.out.println(super.getNom()+", tir en "+c+" : votre navire a coulé"  + "\n");
 		else if (etat==TOUCHE)
-			System.out.println(super.getNom()+", un navire a été touché en " + c);
+			System.out.println(super.getNom()+", votre navire a été touché en " + c  + "\n");
 		else //etat==A_L_EAU
-			System.out.println(super.getNom()+", tir en "+c+" :  tout va bien yayyy");
+			System.out.println(super.getNom()+", tir en "+c+" :  tout va bien yayyy"  + "\n");
 	}
 	
 	public Coordonnee choixAttaque() {

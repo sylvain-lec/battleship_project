@@ -28,11 +28,11 @@ public class JoueurAuto extends JoueurAvecGrille {
 		if (etat==GAMEOVER)
 			System.out.println(this.getNom() + " a perdu :(");
 		else if (etat==COULE)
-			System.out.println("tir en " + c+" : un navire de " + this.getNom() + " a coulé");
+			System.out.println(this.getNom() + " : tir ennemi en " + c+", un navire a coulé" + "\n");
 		else if (etat==TOUCHE)
-			System.out.println("tir en " + c+" : un navire de " + this.getNom() + " a été touché");
+			System.out.println(this.getNom() + " : tir ennemi en " + c+", un navire a été touché" + "\n");
 		else // etat==A_L_EAU
-			System.out.println("tir en " + c+" : aucun bateau de " + this.getNom() + " n'a été touché");
+			System.out.println(this.getNom() + " : tir ennemi en " + c+", aucun bateau n'a été touché" + "\n");
 	}
 	
 	public Coordonnee choixAttaque() {
