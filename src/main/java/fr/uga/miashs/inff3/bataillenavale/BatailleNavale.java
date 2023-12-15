@@ -193,23 +193,23 @@ public class BatailleNavale {
 					System.out.println(grilledef);
 				}
 				
-				//TEXTE  JOUEUR 1
+				//TEXTE JOUEUR 1
 				else if(Joueur1Texte.isSelected()) {
 					//V1
-					int[] bateauxTexte = {2, 2, 3, 3, 4};
+					/* int[] bateauxTexte = {2, 2, 3, 3, 4};
 					GrilleNavale grilletext = new GrilleNavale(tailleGrille, bateauxTexte);
 					joueur1 = new JoueurTexte(grilletext, nomJoueur1.getText());
 					System.out.println(nomJoueur1.getText());
-					System.out.println(grilletext);
+					System.out.println(grilletext);*/
 					
-					/* TEST PLACEMENT AUTO
+					//TEST PLACEMENT AUTO
 					GrilleNavale grilledef = new GrilleNavale(tailleGrille, 1);
 					// placement auto des bateaux en fonction de la taille
 					int[] liste = grilledef.ListeNavires();
 					grilledef.placementAuto(liste);
-					grilledef = new GrilleNavale(tailleGrille, liste); // NE PAS APPELER LE CONSTRUCTEUR AVEC iNT NBNAVIRES
+					//grilledef = new GrilleNavale(tailleGrille, liste); // NE PAS APPELER LE CONSTRUCTEUR AVEC iNT NBNAVIRES
 					joueur1 = new JoueurTexte(grilledef, nomJoueur1.getText());
-					System.out.println(grilledef);	*/
+					System.out.println(grilledef);	
 				}
 				
 				//AUTO JOUEUR 1
@@ -248,20 +248,21 @@ public class BatailleNavale {
 				
 				//TEXTE  JOUEUR 2
 				else if(Joueur2Texte.isSelected()) {
-					//V1
+					/*V1
 					int[] bateauxTexte = {2, 2, 3, 3, 4};
 					GrilleNavale grilletext = new GrilleNavale(tailleGrille, bateauxTexte);
 					joueur2 = new JoueurTexte(grilletext, nomJoueur2.getText());
 					System.out.println(nomJoueur2.getText());
-					System.out.println(grilletext);
+					System.out.println(grilletext);*/
 					
-					/* TEST PLACEMENT AUTO
+					// TEST PLACEMENT AUTO
 					GrilleNavale grilledef = new GrilleNavale(tailleGrille, 1);
 					// placement auto des bateaux en fonction de la taille
 					int[] liste = grilledef.ListeNavires();
 					grilledef.placementAuto(liste);
-					GrilleNavale grilletext = new GrilleNavale(tailleGrille, liste); // NE PAS APPELER LE CONSTRUCTEUR AVEC iNT NBNAVIRES
-					joueur2 = new JoueurTexte(grilletext, nomJoueur2.getText());*/
+					//GrilleNavale grilletext = new GrilleNavale(tailleGrille, liste); // NE PAS APPELER LE CONSTRUCTEUR AVEC iNT NBNAVIRES
+					joueur2 = new JoueurTexte(grilledef, nomJoueur2.getText());
+					System.out.println(grilledef);
 				}
 				
 				//AUTO JOUEUR 2
